@@ -19,7 +19,7 @@ public class TestApp {
         alex.setLast_name("Torre");
         alex.setEmail("a18016309@alumnos.uady.mx");
         alex.setPhone("9999037192");
-        alex.setUsername("alextorrer");
+        alex.setUsername("alextorrer29");
 
         Crop chileHab = new Crop();
         chileHab.setCrop_name("Chile habanero sur");
