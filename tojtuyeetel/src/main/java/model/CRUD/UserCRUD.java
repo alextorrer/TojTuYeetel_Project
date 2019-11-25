@@ -13,7 +13,7 @@ public class UserCRUD {
      * Método para registrar un usuario
      * @param user
      */
-    public void createUser(User user){
+    public void registerUser(User user){
         EntityManager manager = EMFBootstrapper.openEntityManager();
         EntityTransaction transaction = manager.getTransaction();
         try {
