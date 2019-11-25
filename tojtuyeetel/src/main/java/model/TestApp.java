@@ -1,5 +1,6 @@
 package model;
 
+import model.CRUD.UserCRUD;
 import model.bootstrapper.EMFBootstrapper;
 import model.schemas.Crop;
 import model.schemas.Report;
@@ -14,7 +15,11 @@ public class TestApp {
 
     public static void main(String[] args) {
 
-        User alex = new User();
+
+    }
+
+    //Importing some data
+        /* User alex = new User();
         alex.setName("Alejandro");
         alex.setLast_name("Torre");
         alex.setEmail("a18016309@alumnos.uady.mx");
@@ -39,24 +44,12 @@ public class TestApp {
         dragonAmarillo.setDescription("Encontré indicios de que hay una plaga de dragón amarillo en mi plantío de chiles habaneros");
         dragonAmarillo.setCrop(chileHab);
 
+    //Testing the UserCrud
+        UserCRUD manager = new UserCRUD();
+        User userLogged;
 
-        EntityManager manager = EMFBootstrapper.openEntityManager();
-        EntityTransaction transaction = manager.getTransaction();
+        userLogged = manager.getUserByEmail("vvr@nose.gmail.com");
+        System.out.println(userLogged.toString());
 
-        try {
-            transaction.begin();
-            manager.persist(alex);
-            manager.persist(chileHab);
-            manager.persist(dragonAmarillo);
-            transaction.commit();
-        }
-        catch(PersistenceException e) {
-            transaction.rollback();
-            throw e;
-        }
-        finally {
-            manager.close();
-        }
-
-    }
+    }*/
 }
