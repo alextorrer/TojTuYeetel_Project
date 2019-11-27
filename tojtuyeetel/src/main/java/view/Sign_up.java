@@ -5,6 +5,10 @@
  */
 package view;
 
+import static view.Sign_in.registro;
+import static view.starter.entrar;
+import static view.starter.window;
+
 /**
  *
  * @author black
@@ -28,104 +32,150 @@ public class Sign_up extends javax.swing.JPanel {
     private void initComponents() {
 
         Sign_in_img = new javax.swing.JLabel();
-        Name_reg = new javax.swing.JTextField();
-        mail_reg = new javax.swing.JTextField();
-        Pass_reg = new javax.swing.JPasswordField();
-        Pass_reg_conf = new javax.swing.JPasswordField();
         etiqueta_nombre = new javax.swing.JLabel();
         etiqueta_correo = new javax.swing.JLabel();
-        etiqueta_contraseña = new javax.swing.JLabel();
-        etiqueta_conf_contraseña = new javax.swing.JLabel();
+        etiqueta_contrasena = new javax.swing.JLabel();
+        etiqueta_conf_contrasena = new javax.swing.JLabel();
         titulo_registrarse = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setPreferredSize(new java.awt.Dimension(1000, 626));
 
         Sign_in_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Tipos-de-chile-en-Mexico-.jpg"))); // NOI18N
-
-        Name_reg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Name_regActionPerformed(evt);
-            }
-        });
+        Sign_in_img.setMaximumSize(new java.awt.Dimension(1000, 626));
+        Sign_in_img.setMinimumSize(new java.awt.Dimension(1000, 626));
+        Sign_in_img.setPreferredSize(new java.awt.Dimension(1000, 626));
 
         etiqueta_nombre.setText("Nombre:");
 
         etiqueta_correo.setText("Correo electronico:");
 
-        etiqueta_contraseña.setText("Contraseña:");
+        etiqueta_contrasena.setText("Contraseña:");
 
-        etiqueta_conf_contraseña.setText("Confirmar contraseña:");
+        etiqueta_conf_contrasena.setText("Confirmar contraseña:");
 
         titulo_registrarse.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        titulo_registrarse.setForeground(new java.awt.Color(0, 0, 0));
         titulo_registrarse.setText("Registrarse");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("¡Registrarse!");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Sign_in_img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titulo_registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(402, 402, 402))
             .addGroup(layout.createSequentialGroup()
-                .addGap(285, 285, 285)
+                .addComponent(Sign_in_img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiqueta_nombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(etiqueta_correo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(etiqueta_contraseña, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(etiqueta_conf_contraseña, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Name_reg)
-                    .addComponent(mail_reg)
-                    .addComponent(Pass_reg)
-                    .addComponent(Pass_reg_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(etiqueta_conf_contrasena)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(16, 16, 16)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(etiqueta_correo)
+                                        .addComponent(etiqueta_nombre))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField1)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(189, 189, 189)
+                                .addComponent(titulo_registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addComponent(etiqueta_contrasena)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(421, 421, 421))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(Sign_in_img, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(60, 60, 60)
                 .addComponent(titulo_registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiqueta_nombre))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mail_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiqueta_correo))
-                .addGap(32, 32, 32)
+                    .addComponent(etiqueta_nombre)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Pass_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiqueta_contraseña))
-                .addGap(34, 34, 34)
+                    .addComponent(etiqueta_correo)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Pass_reg_conf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiqueta_conf_contraseña))
-                .addContainerGap(118, Short.MAX_VALUE))
+                    .addComponent(etiqueta_contrasena)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiqueta_conf_contrasena))
+                .addGap(36, 36, 36)
+                .addComponent(jButton1)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Name_regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_regActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Name_regActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        window.remove(registro);
+        window.add(entrar);
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Name_reg;
-    private javax.swing.JPasswordField Pass_reg;
-    private javax.swing.JPasswordField Pass_reg_conf;
-    private javax.swing.JLabel Sign_in_img;
-    private javax.swing.JLabel etiqueta_conf_contraseña;
-    private javax.swing.JLabel etiqueta_contraseña;
-    private javax.swing.JLabel etiqueta_correo;
-    private javax.swing.JLabel etiqueta_nombre;
-    private javax.swing.JTextField mail_reg;
-    private javax.swing.JLabel titulo_registrarse;
+    public javax.swing.JLabel Sign_in_img;
+    public javax.swing.JLabel etiqueta_conf_contrasena;
+    public javax.swing.JLabel etiqueta_contrasena;
+    public javax.swing.JLabel etiqueta_correo;
+    public javax.swing.JLabel etiqueta_nombre;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField4;
+    public javax.swing.JLabel titulo_registrarse;
     // End of variables declaration//GEN-END:variables
 }
