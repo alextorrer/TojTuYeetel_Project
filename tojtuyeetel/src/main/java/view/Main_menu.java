@@ -6,6 +6,7 @@
 package view;
 
 import static view.Sign_in.mprincipal;
+import static view.starter.entrar;
 import static view.starter.window;
 
 /**
@@ -17,10 +18,13 @@ public class Main_menu extends javax.swing.JPanel {
     /**
      * Creates new form registro_cultivo
      */
+    public static agregar_cultivo agregar;
     public Main_menu() {
         initComponents();
+        noticias.getViewport().setBackground(new java.awt.Color(204,255,204));
+        noticias.setOpaque(true);
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,46 +35,51 @@ public class Main_menu extends javax.swing.JPanel {
     private void initComponents() {
 
         Main_tabbed_panel = new javax.swing.JTabbedPane();
-        panel_noticias = new javax.swing.JPanel();
+        noticias = new javax.swing.JScrollPane();
         panel_mapa = new javax.swing.JPanel();
         panel_reg_cult = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        button_clo_ses = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
+        setMaximumSize(new java.awt.Dimension(1000, 626));
         setMinimumSize(new java.awt.Dimension(1000, 626));
         setPreferredSize(new java.awt.Dimension(1000, 626));
 
-        panel_noticias.setBackground(new java.awt.Color(204, 255, 204));
+        Main_tabbed_panel.setMaximumSize(new java.awt.Dimension(1000, 626));
+        Main_tabbed_panel.setMinimumSize(new java.awt.Dimension(1000, 626));
+        Main_tabbed_panel.setPreferredSize(new java.awt.Dimension(1000, 626));
 
-        javax.swing.GroupLayout panel_noticiasLayout = new javax.swing.GroupLayout(panel_noticias);
-        panel_noticias.setLayout(panel_noticiasLayout);
-        panel_noticiasLayout.setHorizontalGroup(
-            panel_noticiasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 998, Short.MAX_VALUE)
-        );
-        panel_noticiasLayout.setVerticalGroup(
-            panel_noticiasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-
-        Main_tabbed_panel.addTab("Noticias", panel_noticias);
+        noticias.setBackground(new java.awt.Color(204, 255, 204));
+        noticias.setBorder(null);
+        noticias.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        noticias.setMaximumSize(new java.awt.Dimension(1000, 626));
+        noticias.setMinimumSize(new java.awt.Dimension(1000, 626));
+        noticias.setPreferredSize(new java.awt.Dimension(1000, 626));
+        Main_tabbed_panel.addTab("noticias", noticias);
 
         panel_mapa.setBackground(new java.awt.Color(204, 255, 204));
+        panel_mapa.setMaximumSize(new java.awt.Dimension(1000, 626));
+        panel_mapa.setMinimumSize(new java.awt.Dimension(1000, 626));
+        panel_mapa.setPreferredSize(new java.awt.Dimension(1000, 626));
 
         javax.swing.GroupLayout panel_mapaLayout = new javax.swing.GroupLayout(panel_mapa);
         panel_mapa.setLayout(panel_mapaLayout);
         panel_mapaLayout.setHorizontalGroup(
             panel_mapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 998, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panel_mapaLayout.setVerticalGroup(
             panel_mapaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         Main_tabbed_panel.addTab("Mapa", panel_mapa);
 
         panel_reg_cult.setBackground(new java.awt.Color(204, 255, 204));
+        panel_reg_cult.setMaximumSize(new java.awt.Dimension(1000, 626));
+        panel_reg_cult.setMinimumSize(new java.awt.Dimension(1000, 626));
+        panel_reg_cult.setPreferredSize(new java.awt.Dimension(1000, 626));
 
         jButton1.setText("Agregar cultivo");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,37 +98,61 @@ public class Main_menu extends javax.swing.JPanel {
         panel_reg_cultLayout.setHorizontalGroup(
             panel_reg_cultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_reg_cultLayout.createSequentialGroup()
-                .addContainerGap(823, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(67, 67, 67))
         );
         panel_reg_cultLayout.setVerticalGroup(
             panel_reg_cultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_reg_cultLayout.createSequentialGroup()
-                .addContainerGap(515, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(60, 60, 60))
         );
 
         Main_tabbed_panel.addTab("Mis cultivos", panel_reg_cult);
 
+        button_clo_ses.setText("cerrar sesion");
+        button_clo_ses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_clo_sesMouseClicked(evt);
+            }
+        });
+        button_clo_ses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_clo_sesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(button_clo_ses)
+                    .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Main_tabbed_panel)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(button_clo_ses)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        agregar_cultivo agregar = new agregar_cultivo();
+        agregar = new agregar_cultivo();
         agregar.setSize(1000,626);
-               
+
         window.remove(mprincipal);
         window.add(agregar);
         window.repaint();
@@ -127,16 +160,26 @@ public class Main_menu extends javax.swing.JPanel {
         window.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void button_clo_sesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clo_sesMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        window.remove(mprincipal);
+        window.add(entrar);
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);        
+    }//GEN-LAST:event_button_clo_sesMouseClicked
+
+    private void button_clo_sesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_clo_sesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_clo_sesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Main_tabbed_panel;
+    private javax.swing.JButton button_clo_ses;
     private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane noticias;
     private javax.swing.JPanel panel_mapa;
-    private javax.swing.JPanel panel_noticias;
     private javax.swing.JPanel panel_reg_cult;
     // End of variables declaration//GEN-END:variables
 }

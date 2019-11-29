@@ -36,7 +36,7 @@ public class Sign_in extends javax.swing.JPanel {
         Titulo_etiqueta = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Correo_ingreso = new javax.swing.JTextField();
-        Contrase?a = new javax.swing.JPasswordField();
+        Contrasena = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         Iniciar_sesion = new javax.swing.JButton();
         No_tienes_cuenta_etiqueta = new javax.swing.JLabel();
@@ -51,21 +51,21 @@ public class Sign_in extends javax.swing.JPanel {
 
         Titulo_etiqueta.setFont(new java.awt.Font("BIZ UDPGothic", 3, 36)); // NOI18N
         Titulo_etiqueta.setForeground(new java.awt.Color(0, 153, 204));
-        Titulo_etiqueta.setText("Toj-tu-y?etel");
+        Titulo_etiqueta.setText("Toj-tu-yéetel");
 
         jLabel1.setText("Correo:");
 
-        Contrase?a.setToolTipText("");
-        Contrase?a.setName("contrase?a"); // NOI18N
-        Contrase?a.addActionListener(new java.awt.event.ActionListener() {
+        Contrasena.setToolTipText("");
+        Contrasena.setName("contraseña"); // NOI18N
+        Contrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Contrase?aActionPerformed(evt);
+                ContrasenaActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Contrase?a:");
+        jLabel2.setText("Contraseña:");
 
-        Iniciar_sesion.setText("Iniciar Sesi?n");
+        Iniciar_sesion.setText("Iniciar Sesión");
         Iniciar_sesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Iniciar_sesionMouseClicked(evt);
@@ -78,7 +78,7 @@ public class Sign_in extends javax.swing.JPanel {
         });
 
         No_tienes_cuenta_etiqueta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        No_tienes_cuenta_etiqueta.setText("?No tienes una cuenta?");
+        No_tienes_cuenta_etiqueta.setText("¿No tienes una cuenta?");
 
         Registrarse.setText("Registrate");
         Registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,7 +108,7 @@ public class Sign_in extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Titulo_etiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(Contrase?a, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Contrasena, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(Correo_ingreso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)))
                         .addGap(319, 319, 319))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -136,7 +136,7 @@ public class Sign_in extends javax.swing.JPanel {
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Contrase?a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(31, 31, 31)
                 .addComponent(Iniciar_sesion)
@@ -148,9 +148,9 @@ public class Sign_in extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaActionPerformed
+    private void ContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContrasenaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ContraseñaActionPerformed
+    }//GEN-LAST:event_ContrasenaActionPerformed
 
     private void Iniciar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Iniciar_sesionActionPerformed
 
@@ -182,7 +182,7 @@ public class Sign_in extends javax.swing.JPanel {
         
         //entrada al menu principal del usuario
         mprincipal = new Main_menu();
-             
+        
         mprincipal.setSize(1000,626);
         window.remove(entrar);        
         window.add(mprincipal);
@@ -194,7 +194,7 @@ public class Sign_in extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField Contrase?a;
+    private javax.swing.JPasswordField Contrasena;
     private javax.swing.JTextField Correo_ingreso;
     private javax.swing.JButton Iniciar_sesion;
     private javax.swing.JLabel No_tienes_cuenta_etiqueta;
