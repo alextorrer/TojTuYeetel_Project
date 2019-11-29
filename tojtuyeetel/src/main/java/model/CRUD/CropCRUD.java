@@ -2,7 +2,6 @@ package model.CRUD;
 
 import model.bootstrapper.EMFBootstrapper;
 import model.schemas.Crop;
-import model.schemas.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
