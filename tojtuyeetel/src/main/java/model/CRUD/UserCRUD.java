@@ -13,21 +13,16 @@ public class UserCRUD {
      * Método para registrar un usuario
      * @param user
      */
-    public void registerUser(User user){
+    public void registerUser(User user)throws PersistenceException{
         EntityManager manager = EMFBootstrapper.openEntityManager();
         EntityTransaction transaction = manager.getTransaction();
-        try {
+
             transaction.begin();
             manager.persist(user);
             transaction.commit();
-        }
-        catch(PersistenceException e) {
-            transaction.rollback();
-            throw e;
-        }
-        finally {
+
             manager.close();
-        }
+
     }
 
     /**
@@ -35,15 +30,11 @@ public class UserCRUD {
      * @param email
      * @return el usuario con el email enlazado
      */
-    public User getUserByEmail(String email){
+    public User getUserByEmail(String email)throws PersistenceException{
         EntityManager manager = EMFBootstrapper.openEntityManager();
-        User user = new User();
-        try {
+        User user;
+
             user = (User) manager.createQuery("from User u where u.email='" + email + "'").getSingleResult();
-        }
-        catch(PersistenceException e) {
-            throw e;
-        }
 
         return user;
     }
