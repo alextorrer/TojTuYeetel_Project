@@ -19,11 +19,6 @@ public class Controller
  public void add_crop(agregar_cultivo view)
  {
   CropCRUD crud = new CropCRUD();
-  //Nombre = jTextField2
-  //Tipo de Cosecha = cosecha
-  //Sembrado = jDateChooser1
-  //Inicio de Cosecha = jDateChooser2
-  //Ubicacion = jTextField1
 
   //Aqui las cosas a validar. Tienen que estar todas en 1 para continuar.
   int campos = 0; //campos llenos
@@ -33,24 +28,24 @@ public class Controller
   int debounce = 0; //por favor solo muestrame un mensaje de error a la vez
 
   //Verificar que no haya informacion vacia
-  if (view.jTextField2.getText().isEmpty() == false && //Nombre de cosecha
+  if (view.titulo.getText().isEmpty() == false && //Nombre de cosecha
       view.cosecha.getSelectedItem().toString().isEmpty() == false && //Tipo de cosecha
-      view.jDateChooser1.getDate().toString().isEmpty() == false && //Sembrado
-      view.jDateChooser2.getDate().toString().isEmpty() == false && //Inicio de cosecha
-      view.jTextField2.getText().isEmpty() == false //Ubicacion
+      view.sembrado.getDate().toString().isEmpty() == false && //Sembrado
+      view.recosecha.getDate().toString().isEmpty() == false && //Inicio de cosecha
+      view.ubicacion.getText().isEmpty() == false //Ubicacion
      )
   {
    campos = 1;
   }
 
   //Validar que la fecha de sembrado sea antes de la fecha de cosecha
-  if (view.jDateChooser1.getDate().before(view.jDateChooser2.getDate()))
+  if (view.sembrado.getDate().before(view.recosecha.getDate()))
   {
    veracidad = 1;
   }
 
   //Validar que no haya una cosecha con el mismo nombre
-  if (crud.getCrop(view.jTextField2.getText()) == null)
+  if (crud.getCrop(view.titulo.getText()) == null)
   {
    unicaYdiferente = 1;
   }
@@ -59,11 +54,11 @@ public class Controller
   if (campos == 1 && veracidad == 1 && unicaYdiferente == 1)
   {
    Crop seedy = new Crop();
-   seedy.setCrop_name(view.jTextField2.getText());
+   seedy.setCrop_name(view.titulo.getText());
    seedy.setType(view.cosecha.getSelectedItem().toString());
-   seedy.setSeed_date(view.jDateChooser1.getDate());
-   seedy.setHarvest_date(view.jDateChooser2.getDate());
-   seedy.setLocation(view.jTextField2.getText());
+   seedy.setSeed_date(view.sembrado.getDate());
+   seedy.setHarvest_date(view.recosecha.getDate());
+   seedy.setLocation(view.ubicacion.getText());
 
    crud.addCrop(seedy);
   }
@@ -90,17 +85,14 @@ public class Controller
  public void report_crop(report_plaga view)
  {
   ReportCRUD crud = new ReportCRUD();
-  //Titulo = jTextField1
-  //Tipo de Plaga = jComboBox1
-  //Descripcion = jTextArea1
 
   //Aqui las cosas a validar. Tienen que estar todas en 1 para continuar.
   int campos = 0; //campos llenos
 
   //Verificar que no haya informacion vacia
-  if (view.jTextField1.getText().isEmpty() == false && //Titulo de reporte
-      view.jComboBox1.getSelectedItem().toString().isEmpty() == false && //Tipo de plaga
-      view.jTextArea1.getText().isEmpty () == false
+  if (view.titulo.getText().isEmpty() == false && //Titulo de reporte
+      view.tipoplaga.getSelectedItem().toString().isEmpty() == false && //Tipo de plaga
+      view.descripcao.getText().isEmpty () == false
      )
   {
    campos = 1;
@@ -112,9 +104,9 @@ public class Controller
    UserCRUD crud2 = new UserCRUD();
    Report reporte = new Report();
    reporte.setUser(crud2.getUserByEmail("alextorre@correo.com"));
-   reporte.setTitle(view.jTextField1.getText());
-   reporte.setPlague(view.jComboBox1.getSelectedItem().toString());
-   reporte.setDescription(view.jTextArea1.getText());
+   reporte.setTitle(view.titulo.getText());
+   reporte.setPlague(view.tipoplaga.getSelectedItem().toString());
+   reporte.setDescription(view.descripcao.getText());
    
    crud.createReport(reporte);
   }
