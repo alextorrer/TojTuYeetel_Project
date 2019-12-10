@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.Color;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import static view.Sign_in.mprincipal;
 import static view.starter.entrar;
 import static view.starter.window;
@@ -22,12 +25,10 @@ public class Main_menu extends javax.swing.JPanel {
     public static Sign_in presentacion;        
     public static agregar_cultivo agregar; 
     public static report_plaga reporte;
+    public int count;
     
     public Main_menu() {
-        initComponents();
-        noticias.getViewport().setBackground(new java.awt.Color(204,255,204));
-        noticias.setOpaque(true);
-        
+        initComponents();       
         
     }
     /**
@@ -41,12 +42,13 @@ public class Main_menu extends javax.swing.JPanel {
 
         Main_tabbed_panel = new javax.swing.JTabbedPane();
         panel_mapa = new javax.swing.JPanel();
-        panel_reg_cult = new javax.swing.JPanel();
-        add_cultivo = new javax.swing.JButton();
-        noticias = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
-        B_report_plaga = new javax.swing.JButton();
+        table_news_scroll = new javax.swing.JScrollPane();
+        table_news = new javax.swing.JTable();
+        table_cultivo_scroll = new javax.swing.JScrollPane();
+        table_cultivo = new javax.swing.JTable();
         button_clo_ses = new javax.swing.JButton();
+        add_cultivo = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setMaximumSize(new java.awt.Dimension(1000, 626));
@@ -75,79 +77,35 @@ public class Main_menu extends javax.swing.JPanel {
 
         Main_tabbed_panel.addTab("Mapa", panel_mapa);
 
-        panel_reg_cult.setBackground(new java.awt.Color(204, 255, 204));
-        panel_reg_cult.setMaximumSize(new java.awt.Dimension(1000, 626));
-        panel_reg_cult.setMinimumSize(new java.awt.Dimension(1000, 626));
-        panel_reg_cult.setPreferredSize(new java.awt.Dimension(1000, 626));
-
-        add_cultivo.setText("Agregar cultivo");
-        add_cultivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                add_cultivoMouseClicked(evt);
+        table_news.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "noticias"
             }
-        });
-        add_cultivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_cultivoActionPerformed(evt);
+        ));
+        table_news_scroll.setViewportView(table_news);
+
+        Main_tabbed_panel.addTab("noticias", table_news_scroll);
+
+        table_cultivo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "cultivos", "mas informacion"
             }
-        });
+        ));
+        table_cultivo_scroll.setViewportView(table_cultivo);
 
-        javax.swing.GroupLayout panel_reg_cultLayout = new javax.swing.GroupLayout(panel_reg_cult);
-        panel_reg_cult.setLayout(panel_reg_cultLayout);
-        panel_reg_cultLayout.setHorizontalGroup(
-            panel_reg_cultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_reg_cultLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(add_cultivo)
-                .addGap(67, 67, 67))
-        );
-        panel_reg_cultLayout.setVerticalGroup(
-            panel_reg_cultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_reg_cultLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(add_cultivo)
-                .addGap(60, 60, 60))
-        );
-
-        Main_tabbed_panel.addTab("Mis cultivos", panel_reg_cult);
-
-        noticias.setBackground(new java.awt.Color(204, 255, 204));
-        noticias.setBorder(null);
-        noticias.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        noticias.setMaximumSize(new java.awt.Dimension(1000, 626));
-        noticias.setMinimumSize(new java.awt.Dimension(1000, 626));
-        noticias.setPreferredSize(new java.awt.Dimension(1000, 626));
-
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
-
-        B_report_plaga.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        B_report_plaga.setText("Reportar plaga");
-        B_report_plaga.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                B_report_plagaMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(B_report_plaga)
-                .addGap(31, 31, 31))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(B_report_plaga)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        noticias.setViewportView(jPanel1);
-
-        Main_tabbed_panel.addTab("noticias", noticias);
+        Main_tabbed_panel.addTab("mis cultivos", table_cultivo_scroll);
 
         button_clo_ses.setText("cerrar sesion");
         button_clo_ses.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,22 +119,51 @@ public class Main_menu extends javax.swing.JPanel {
             }
         });
 
+        add_cultivo.setText("Agregar cultivo");
+        add_cultivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add_cultivoMouseClicked(evt);
+            }
+        });
+        add_cultivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_cultivoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Reportar plaga");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(button_clo_ses)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(582, 582, 582)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(add_cultivo)
+                        .addGap(47, 47, 47)
+                        .addComponent(button_clo_ses))
                     .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(button_clo_ses)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_clo_ses)
+                    .addComponent(add_cultivo)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -208,40 +195,38 @@ public class Main_menu extends javax.swing.JPanel {
     private void add_cultivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_cultivoMouseClicked
         // TODO add your handling code here:
         agregar = new agregar_cultivo();
-        
+
         agregar.setSize(1000,626);
 
         window.remove(entrar);
-        
+
         window.add(agregar);
         window.repaint();
         window.revalidate();
         window.setVisible(true);
     }//GEN-LAST:event_add_cultivoMouseClicked
 
-    private void B_report_plagaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_report_plagaMouseClicked
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         reporte = new report_plaga();
-
-        reporte.setSize(1000,626);
         
+        reporte.setSize(1000, 626);
         window.remove(entrar);
         window.add(reporte);
-
         window.repaint();
         window.revalidate();
-        
-        window.setVisible(true);
-    }//GEN-LAST:event_B_report_plagaMouseClicked
+        window.setVisible(true);      
+    }//GEN-LAST:event_jButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton B_report_plaga;
     private javax.swing.JTabbedPane Main_tabbed_panel;
     private javax.swing.JButton add_cultivo;
     private javax.swing.JButton button_clo_ses;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane noticias;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel panel_mapa;
-    private javax.swing.JPanel panel_reg_cult;
+    private javax.swing.JTable table_cultivo;
+    private javax.swing.JScrollPane table_cultivo_scroll;
+    private javax.swing.JTable table_news;
+    private javax.swing.JScrollPane table_news_scroll;
     // End of variables declaration//GEN-END:variables
 }
