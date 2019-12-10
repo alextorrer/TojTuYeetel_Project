@@ -35,10 +35,12 @@ public class Main_menu extends javax.swing.JPanel {
     private void initComponents() {
 
         Main_tabbed_panel = new javax.swing.JTabbedPane();
-        noticias = new javax.swing.JScrollPane();
         panel_mapa = new javax.swing.JPanel();
         panel_reg_cult = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        add_cultivo = new javax.swing.JButton();
+        noticias = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        B_report_plaga = new javax.swing.JButton();
         button_clo_ses = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
@@ -49,14 +51,6 @@ public class Main_menu extends javax.swing.JPanel {
         Main_tabbed_panel.setMaximumSize(new java.awt.Dimension(1000, 626));
         Main_tabbed_panel.setMinimumSize(new java.awt.Dimension(1000, 626));
         Main_tabbed_panel.setPreferredSize(new java.awt.Dimension(1000, 626));
-
-        noticias.setBackground(new java.awt.Color(204, 255, 204));
-        noticias.setBorder(null);
-        noticias.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        noticias.setMaximumSize(new java.awt.Dimension(1000, 626));
-        noticias.setMinimumSize(new java.awt.Dimension(1000, 626));
-        noticias.setPreferredSize(new java.awt.Dimension(1000, 626));
-        Main_tabbed_panel.addTab("noticias", noticias);
 
         panel_mapa.setBackground(new java.awt.Color(204, 255, 204));
         panel_mapa.setMaximumSize(new java.awt.Dimension(1000, 626));
@@ -81,15 +75,15 @@ public class Main_menu extends javax.swing.JPanel {
         panel_reg_cult.setMinimumSize(new java.awt.Dimension(1000, 626));
         panel_reg_cult.setPreferredSize(new java.awt.Dimension(1000, 626));
 
-        jButton1.setText("Agregar cultivo");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        add_cultivo.setText("Agregar cultivo");
+        add_cultivo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                add_cultivoMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        add_cultivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                add_cultivoActionPerformed(evt);
             }
         });
 
@@ -97,20 +91,56 @@ public class Main_menu extends javax.swing.JPanel {
         panel_reg_cult.setLayout(panel_reg_cultLayout);
         panel_reg_cultLayout.setHorizontalGroup(
             panel_reg_cultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_reg_cultLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+            .addGroup(panel_reg_cultLayout.createSequentialGroup()
+                .addContainerGap(823, Short.MAX_VALUE)
+                .addComponent(add_cultivo)
                 .addGap(67, 67, 67))
         );
         panel_reg_cultLayout.setVerticalGroup(
             panel_reg_cultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_reg_cultLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addContainerGap(486, Short.MAX_VALUE)
+                .addComponent(add_cultivo)
                 .addGap(60, 60, 60))
         );
 
         Main_tabbed_panel.addTab("Mis cultivos", panel_reg_cult);
+
+        noticias.setBackground(new java.awt.Color(204, 255, 204));
+        noticias.setBorder(null);
+        noticias.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        noticias.setMaximumSize(new java.awt.Dimension(1000, 626));
+        noticias.setMinimumSize(new java.awt.Dimension(1000, 626));
+        noticias.setPreferredSize(new java.awt.Dimension(1000, 626));
+
+        B_report_plaga.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        B_report_plaga.setText("Reportar plaga");
+        B_report_plaga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                B_report_plagaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(797, Short.MAX_VALUE)
+                .addComponent(B_report_plaga)
+                .addGap(31, 31, 31))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(B_report_plaga)
+                .addContainerGap(545, Short.MAX_VALUE))
+        );
+
+        noticias.setViewportView(jPanel1);
+
+        Main_tabbed_panel.addTab("noticias", noticias);
 
         button_clo_ses.setText("cerrar sesion");
         button_clo_ses.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -139,16 +169,15 @@ public class Main_menu extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(button_clo_ses)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void add_cultivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_cultivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_add_cultivoActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void add_cultivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_cultivoMouseClicked
         // TODO add your handling code here:
         agregar = new agregar_cultivo();
         agregar.setSize(1000,626);
@@ -158,7 +187,7 @@ public class Main_menu extends javax.swing.JPanel {
         window.repaint();
         window.revalidate();
         window.setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_add_cultivoMouseClicked
 
     private void button_clo_sesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clo_sesMouseClicked
         // TODO add your handling code here:
@@ -173,11 +202,25 @@ public class Main_menu extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_button_clo_sesActionPerformed
 
+    private void B_report_plagaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_report_plagaMouseClicked
+        // TODO add your handling code here:
+        report_plaga reporte = new report_plaga();
+        
+        reporte.setSize(1000,626);
+        window.remove(mprincipal);
+        window.add(reporte);
+        
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+    }//GEN-LAST:event_B_report_plagaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton B_report_plaga;
     private javax.swing.JTabbedPane Main_tabbed_panel;
+    private javax.swing.JButton add_cultivo;
     private javax.swing.JButton button_clo_ses;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane noticias;
     private javax.swing.JPanel panel_mapa;
     private javax.swing.JPanel panel_reg_cult;
