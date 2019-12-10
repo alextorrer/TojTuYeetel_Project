@@ -12,12 +12,12 @@ import static view.starter.window;
  *
  * @author black
  */
-public class seguimiento_cosechas extends javax.swing.JPanel {
+public class TrackCrops_UI extends javax.swing.JPanel {
 
     /**
      * Creates new form seguimiento_cosechas
      */
-    public seguimiento_cosechas() {
+    public TrackCrops_UI() {
         initComponents();
     }
 

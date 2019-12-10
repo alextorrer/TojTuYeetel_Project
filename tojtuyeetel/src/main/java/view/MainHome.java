@@ -16,18 +16,18 @@ import static view.starter.window;
  *
  * @author black
  */
-public class Main_menu extends javax.swing.JPanel {
+public class MainHome extends javax.swing.JPanel {
 
     /**
      * Creates new form registro_cultivo
      */
     
     public static Sign_in presentacion;        
-    public static agregar_cultivo agregar; 
-    public static report_plaga reporte;
+    public static AddCrop_UI agregar; 
+    public static ReportPlague_UI reporte;
     public int count;
     
-    public Main_menu() {
+    public MainHome() {
         initComponents();       
         
     }
@@ -194,7 +194,7 @@ public class Main_menu extends javax.swing.JPanel {
 
     private void add_cultivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_cultivoMouseClicked
         // TODO add your handling code here:
-        agregar = new agregar_cultivo();
+        agregar = new AddCrop_UI();
 
         agregar.setSize(1000,626);
 
@@ -208,7 +208,7 @@ public class Main_menu extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        reporte = new report_plaga();
+        reporte = new ReportPlague_UI();
         
         reporte.setSize(1000, 626);
         window.remove(entrar);

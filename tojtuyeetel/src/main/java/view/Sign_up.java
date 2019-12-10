@@ -5,7 +5,7 @@
  */
 package view;
 
-import static view.Main_menu.presentacion;
+import static view.MainHome.presentacion;
 import static view.Sign_in.registro;
 import static view.starter.entrar;
 import static view.starter.window;

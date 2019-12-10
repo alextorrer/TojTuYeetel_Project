@@ -5,7 +5,7 @@
  */
 package view;
 
-import static view.Main_menu.agregar;
+import static view.MainHome.agregar;
 import static view.Sign_in.mprincipal;
 import static view.starter.entrar;
 import static view.starter.window;
@@ -14,12 +14,12 @@ import static view.starter.window;
  *
  * @author black
  */
-public class agregar_cultivo extends javax.swing.JPanel {
+public class AddCrop_UI extends javax.swing.JPanel {
 
     /**
      * Creates new form agregar_cultivo
      */
-    public agregar_cultivo() {
+    public AddCrop_UI() {
         initComponents();
     }
 

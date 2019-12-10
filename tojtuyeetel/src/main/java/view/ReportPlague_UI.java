@@ -5,7 +5,7 @@
  */
 package view;
 
-import static view.Main_menu.reporte;
+import static view.MainHome.reporte;
 import static view.starter.entrar;
 import static view.starter.window;
 
@@ -13,12 +13,12 @@ import static view.starter.window;
  *
  * @author black
  */
-public class report_plaga extends javax.swing.JPanel {
+public class ReportPlague_UI extends javax.swing.JPanel {
 
     /**
      * Creates new form report_plaga
      */
-    public report_plaga() {
+    public ReportPlague_UI() {
         initComponents();
     }
 

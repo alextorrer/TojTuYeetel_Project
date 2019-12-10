@@ -9,14 +9,14 @@ import model.CRUD.UserCRUD;
 import model.schemas.User;
 
 //views
-import view.agregar_cultivo;
-import view.report_plaga;
+import view.AddCrop_UI;
+import view.ReportPlague_UI;
 
 import javax.swing.JOptionPane;
 
-public class Controller
+public class AddCrop_Controller
 {
- public void add_crop(agregar_cultivo view)
+ public void add_crop(AddCrop_UI view)
  {
   CropCRUD crud = new CropCRUD();
 
@@ -82,7 +82,7 @@ public class Controller
   }
  }
 
- public void report_crop(report_plaga view)
+ public void report_crop(ReportPlague_UI view)
  {
   ReportCRUD crud = new ReportCRUD();
 

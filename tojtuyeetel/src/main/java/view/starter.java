@@ -17,12 +17,12 @@ import javax.swing.JPanel;
 public class starter 
 {
     public static base_frame window;
-    public static Main_menu entrar;
+    public static MainHome entrar;
     
     public static void main (String args[])
     {
         window= new base_frame();
-        entrar = new Main_menu();
+        entrar = new MainHome();
         
         entrar.setSize(1000,626);
         
