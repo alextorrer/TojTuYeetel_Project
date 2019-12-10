@@ -13,14 +13,21 @@ public class Report {
     @GeneratedValue
     private Integer report_id;
 
+    @Column(nullable = false)
     private String title;
+    
+    @Column(nullable = false)
     private String description;
+    
+    @Column(nullable = false)
+    private String plague;
 
-    //Varios reportes pueden ser de un cultivo
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "crop_id", nullable = false)
-    private Crop crop;
-
+    //Varios reportes pueden ser de un usuario
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "report_from_user_id", nullable = false)
+    private User user;
+    
+    
     public Report() {
     }
 
@@ -48,11 +55,22 @@ public class Report {
         this.description = description;
     }
 
-    public Crop getCrop() {
-        return crop;
+    public String getPlague() {
+        return plague;
     }
 
-    public void setCrop(Crop crop) {
-        this.crop = crop;
+    public void setPlague(String plague) {
+        this.plague = plague;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    
+    
 }

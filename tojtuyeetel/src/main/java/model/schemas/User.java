@@ -29,9 +29,6 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    //Un usuario tiene varios cultivos
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Crop> crops;
 
     public User() {
 
@@ -85,6 +82,8 @@ public class User {
         this.email = email;
     }
 
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -94,7 +93,6 @@ public class User {
                 ", username='" + username + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", crops=" + crops +
                 '}';
     }
 }

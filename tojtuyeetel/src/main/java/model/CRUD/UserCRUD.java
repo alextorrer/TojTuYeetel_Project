@@ -10,7 +10,7 @@ import javax.persistence.PersistenceException;
 public class UserCRUD {
 
     /**
-     * Método para registrar un usuario
+     * Method to register a user
      * @param user
      */
     public void registerUser(User user)throws PersistenceException{
@@ -26,7 +26,7 @@ public class UserCRUD {
     }
 
     /**
-     * Método que consulta en la BD para obtener el usuario buscado por email
+     * Method to get a user given his email
      * @param email
      * @return el usuario con el email enlazado
      */
