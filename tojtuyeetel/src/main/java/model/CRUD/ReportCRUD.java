@@ -1,41 +1,40 @@
 package model.CRUD;
 
+import java.util.List;
 import model.bootstrapper.EMFBootstrapper;
-import model.schemas.User;
+import model.schemas.Report;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 
-public class UserCRUD {
+public class ReportCRUD {
 
     /**
-     * Method to register a user
-     * @param user
+     * Method to create a report
+     * @param report
      */
-    public void registerUser(User user)throws PersistenceException{
+    public void createReport(Report report)throws PersistenceException{
         EntityManager manager = EMFBootstrapper.openEntityManager();
         EntityTransaction transaction = manager.getTransaction();
 
             transaction.begin();
-            manager.persist(user);
+            manager.persist(report);
             transaction.commit();
 
             manager.close();
 
     }
-
+    
     /**
-     * Method to get a user given his email
-     * @param email
-     * @return el usuario con el email enlazado
+     * Method to obtain the existing reports
+     * @return reports
      */
-    public User getUserByEmail(String email)throws PersistenceException{
+    public List<Report> getReports(){
+        List<Report> reports;
         EntityManager manager = EMFBootstrapper.openEntityManager();
-        User user;
-
-            user = (User) manager.createQuery("from User u where u.email='" + email + "'").getSingleResult();
-
-        return user;
+        reports = manager.createQuery("from Report", Report.class).getResultList();
+        return reports;
     }
+
 }

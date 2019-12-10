@@ -17,17 +17,18 @@ import javax.swing.JPanel;
 public class starter 
 {
     public static base_frame window;
-    public static Sign_in entrar;
+    public static Main_menu entrar;
     
     public static void main (String args[])
     {
         window= new base_frame();
-        entrar = new Sign_in();
+        entrar = new Main_menu();
         
         entrar.setSize(1000,626);
         
         window.add(entrar);
         window.setVisible(true);
+
                         
     }
 }

@@ -5,6 +5,7 @@
  */
 package view;
 
+import static view.Main_menu.presentacion;
 import static view.Sign_in.registro;
 import static view.starter.entrar;
 import static view.starter.window;
@@ -31,7 +32,6 @@ public class Sign_up extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Sign_in_img = new javax.swing.JLabel();
         etiqueta_nombre = new javax.swing.JLabel();
         etiqueta_correo = new javax.swing.JLabel();
         etiqueta_contrasena = new javax.swing.JLabel();
@@ -45,11 +45,6 @@ public class Sign_up extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 255, 204));
         setPreferredSize(new java.awt.Dimension(1000, 626));
-
-        Sign_in_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Tipos-de-chile-en-Mexico-.jpg"))); // NOI18N
-        Sign_in_img.setMaximumSize(new java.awt.Dimension(1000, 626));
-        Sign_in_img.setMinimumSize(new java.awt.Dimension(1000, 626));
-        Sign_in_img.setPreferredSize(new java.awt.Dimension(1000, 626));
 
         etiqueta_nombre.setText("Nombre:");
 
@@ -85,9 +80,6 @@ public class Sign_up extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Sign_in_img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(251, 251, 251)
@@ -113,17 +105,16 @@ public class Sign_up extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(299, 299, 299)
                         .addComponent(etiqueta_contrasena)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(421, 421, 421))
+                .addGap(446, 446, 446))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(Sign_in_img, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(265, 265, 265)
                 .addComponent(titulo_registrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -158,7 +149,8 @@ public class Sign_up extends javax.swing.JPanel {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         window.remove(registro);
-        window.add(entrar);
+        
+        window.add(presentacion);
         window.repaint();
         window.revalidate();
         window.setVisible(true);
@@ -166,7 +158,6 @@ public class Sign_up extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel Sign_in_img;
     public javax.swing.JLabel etiqueta_conf_contrasena;
     public javax.swing.JLabel etiqueta_contrasena;
     public javax.swing.JLabel etiqueta_correo;
