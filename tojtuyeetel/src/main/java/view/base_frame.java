@@ -34,6 +34,8 @@ public class base_frame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImages(null);
+        setMaximumSize(new java.awt.Dimension(1000, 626));
         setMinimumSize(new java.awt.Dimension(1000, 626));
         setName("final"); // NOI18N
         setResizable(false);

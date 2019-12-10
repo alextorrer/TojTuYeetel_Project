@@ -5,6 +5,7 @@
  */
 package view;
 
+import static view.Main_menu.presentacion;
 import static view.starter.entrar;
 import static view.starter.window;
 
@@ -32,7 +33,6 @@ public class Sign_in extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Sign_in_img = new javax.swing.JLabel();
         Titulo_etiqueta = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Correo_ingreso = new javax.swing.JTextField();
@@ -46,8 +46,6 @@ public class Sign_in extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(1000, 626));
         setMinimumSize(new java.awt.Dimension(1000, 626));
         setPreferredSize(new java.awt.Dimension(1000, 626));
-
-        Sign_in_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Tipos-de-chile-en-Mexico-.jpg"))); // NOI18N
 
         Titulo_etiqueta.setFont(new java.awt.Font("BIZ UDPGothic", 3, 36)); // NOI18N
         Titulo_etiqueta.setForeground(new java.awt.Color(0, 153, 204));
@@ -96,10 +94,12 @@ public class Sign_in extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Sign_in_img, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 316, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(No_tienes_cuenta_etiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(356, 356, 356))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
@@ -110,10 +110,7 @@ public class Sign_in extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(Contrasena, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(Correo_ingreso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)))
-                        .addGap(319, 319, 319))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(No_tienes_cuenta_etiqueta, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(356, 356, 356))))
+                        .addGap(319, 319, 319))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,8 +124,7 @@ public class Sign_in extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Sign_in_img, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(211, 211, 211)
                 .addComponent(Titulo_etiqueta)
                 .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -144,7 +140,7 @@ public class Sign_in extends javax.swing.JPanel {
                 .addComponent(No_tienes_cuenta_etiqueta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Registrarse)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 118, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -161,9 +157,10 @@ public class Sign_in extends javax.swing.JPanel {
         
         //entra al panel de registro de usuario
         registro = new Sign_up();
-        
         registro.setSize(1000,626);
-        window.remove(entrar);
+        
+        window.remove(presentacion);
+        
         window.add(registro);
         
         window.repaint();
@@ -184,8 +181,8 @@ public class Sign_in extends javax.swing.JPanel {
         mprincipal = new Main_menu();
         
         mprincipal.setSize(1000,626);
-        window.remove(entrar);        
-        window.add(mprincipal);
+        window.remove(presentacion);        
+        window.add(entrar);
         
         window.repaint();
         window.revalidate();
@@ -199,7 +196,6 @@ public class Sign_in extends javax.swing.JPanel {
     private javax.swing.JButton Iniciar_sesion;
     private javax.swing.JLabel No_tienes_cuenta_etiqueta;
     private javax.swing.JButton Registrarse;
-    private javax.swing.JLabel Sign_in_img;
     private javax.swing.JLabel Titulo_etiqueta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
