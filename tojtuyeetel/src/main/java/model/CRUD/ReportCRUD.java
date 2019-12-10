@@ -1,5 +1,6 @@
 package model.CRUD;
 
+import java.util.List;
 import model.bootstrapper.EMFBootstrapper;
 import model.schemas.Report;
 
@@ -23,6 +24,17 @@ public class ReportCRUD {
 
             manager.close();
 
+    }
+    
+    /**
+     * Method to obtain the existing reports
+     * @return reports
+     */
+    public List<Report> getReports(){
+        List<Report> reports;
+        EntityManager manager = EMFBootstrapper.openEntityManager();
+        reports = manager.createQuery("from Report", Report.class).getResultList();
+        return reports;
     }
 
 }

@@ -58,14 +58,14 @@ public class CropCRUD {
     
     /**
      * Method to get a list of all the crops registered by a user
-     * @param user
+     * @param user_id
      * @return Crops List
      */
-    public List<Crop> getCrops(User user){
+    public List<Crop> getCrops(int user_id){
         List<Crop> crops;
         EntityManager manager = EMFBootstrapper.openEntityManager();
         
-        crops =  manager.createQuery("from Crop u where u.user = '" + user + "' ", Crop.class).getResultList();
+        crops =  manager.createQuery("from Crop u where u.crop_from_user_id = '" + user_id + "' ", Crop.class).getResultList();
         
         return crops;
     }

@@ -34,7 +34,6 @@ public class base_frame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images.png")));
         setMinimumSize(new java.awt.Dimension(1000, 626));
         setName("final"); // NOI18N
         setResizable(false);
@@ -68,6 +67,6 @@ public class base_frame extends javax.swing.JFrame {
 
     private void setIcon() 
     {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Images.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("images.png")));
     }
 }
