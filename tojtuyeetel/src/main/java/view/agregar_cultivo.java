@@ -84,6 +84,12 @@ public class agregar_cultivo extends javax.swing.JPanel {
             }
         });
 
+        ubicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubicacionActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Ubicacion:");
 
@@ -207,20 +213,24 @@ public class agregar_cultivo extends javax.swing.JPanel {
         window.setVisible(true);
     }//GEN-LAST:event_b_regresarMouseClicked
 
+    private void ubicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubicacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ubicacionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b_registrar_cultivo;
     private javax.swing.JButton b_regresar;
-    private javax.swing.JComboBox cosecha;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    public javax.swing.JComboBox cosecha;
+    public com.toedter.calendar.JDateChooser jDateChooser1;
+    public com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel label_ini_cosecha;
     private javax.swing.JLabel label_periodo_cosecha;
     private javax.swing.JLabel label_tipo_cosecha;
-    private javax.swing.JTextField titulo;
-    private javax.swing.JTextField ubicacion;
+    public javax.swing.JTextField titulo;
+    public javax.swing.JTextField ubicacion;
     // End of variables declaration//GEN-END:variables
 }
