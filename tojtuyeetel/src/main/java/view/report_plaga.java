@@ -5,6 +5,10 @@
  */
 package view;
 
+import static view.Main_menu.reporte;
+import static view.starter.entrar;
+import static view.starter.window;
+
 /**
  *
  * @author black
@@ -56,9 +60,19 @@ public class report_plaga extends javax.swing.JPanel {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dragon amarillo", "Acaro blanco", "picudo de chile", "Minador de la hoja" }));
 
         jToggleButton1.setText("Regresar");
+        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jToggleButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Enviar reporte");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Titulo");
@@ -117,6 +131,26 @@ public class report_plaga extends javax.swing.JPanel {
                 .addGap(57, 57, 57))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
+        // TODO add your handling code here:
+        window.remove(reporte);        
+        window.add(entrar);
+        
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true); 
+    }//GEN-LAST:event_jToggleButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        window.remove(reporte);        
+        window.add(entrar);
+        
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
