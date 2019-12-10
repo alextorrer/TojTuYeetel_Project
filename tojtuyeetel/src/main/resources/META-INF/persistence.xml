@@ -11,10 +11,10 @@
 
         <properties>
             <!-- JDBC properties -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/chilestest?serverTimezone=UTC" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://bee88aa2f8d851:992af122@us-cdbr-iron-east-05.cleardb.net/heroku_a242fce73a1277c?reconnect=true" />
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.password" value="atr2901" />
-            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="992af122" />
+            <property name="javax.persistence.jdbc.user" value="bee88aa2f8d851" />
 
             <!-- Hibernate properties -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />

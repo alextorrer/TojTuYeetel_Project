@@ -13,21 +13,16 @@ public class ReportCRUD {
      * Method to create a report
      * @param report
      */
-    public void createReport(Report report){
+    public void createReport(Report report)throws PersistenceException{
         EntityManager manager = EMFBootstrapper.openEntityManager();
         EntityTransaction transaction = manager.getTransaction();
-        try {
+
             transaction.begin();
             manager.persist(report);
             transaction.commit();
-        }
-        catch(PersistenceException e) {
-            transaction.rollback();
-            throw e;
-        }
-        finally {
+
             manager.close();
-        }
+
     }
 
 }

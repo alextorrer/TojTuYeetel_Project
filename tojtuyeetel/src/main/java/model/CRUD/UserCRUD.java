@@ -10,40 +10,31 @@ import javax.persistence.PersistenceException;
 public class UserCRUD {
 
     /**
-     * Método para registrar un usuario
+     * Method to register a user
      * @param user
      */
-    public void registerUser(User user){
+    public void registerUser(User user)throws PersistenceException{
         EntityManager manager = EMFBootstrapper.openEntityManager();
         EntityTransaction transaction = manager.getTransaction();
-        try {
+
             transaction.begin();
             manager.persist(user);
             transaction.commit();
-        }
-        catch(PersistenceException e) {
-            transaction.rollback();
-            throw e;
-        }
-        finally {
+
             manager.close();
-        }
+
     }
 
     /**
-     * Método que consulta en la BD para obtener el usuario buscado por email
+     * Method to get a user given his email
      * @param email
      * @return el usuario con el email enlazado
      */
-    public User getUserByEmail(String email){
+    public User getUserByEmail(String email)throws PersistenceException{
         EntityManager manager = EMFBootstrapper.openEntityManager();
-        User user = new User();
-        try {
+        User user;
+
             user = (User) manager.createQuery("from User u where u.email='" + email + "'").getSingleResult();
-        }
-        catch(PersistenceException e) {
-            throw e;
-        }
 
         return user;
     }

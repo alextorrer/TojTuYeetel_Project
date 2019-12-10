@@ -33,14 +33,9 @@ public class Crop {
     @Column(nullable = false)
     private boolean harvest_status;
 
-    //Varios cultivos pueden ser de un usuario
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "crop_from_user_id", nullable = false)
     private User user;
-
-    //Un cultivo puede tener varios reportes
-    @OneToMany(mappedBy = "crop", cascade = CascadeType.ALL)
-    private Set<Report> reports;
 
     public Crop() {
     }
@@ -109,14 +104,6 @@ public class Crop {
         this.user = user;
     }
 
-    public Set<Report> getReports() {
-        return reports;
-    }
-
-    public void setReports(Set<Report> reports) {
-        this.reports = reports;
-    }
-
-
-
+    
+    
 }

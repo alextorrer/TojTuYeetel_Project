@@ -1,11 +1,13 @@
 package model.CRUD;
 
+import java.util.List;
 import model.bootstrapper.EMFBootstrapper;
 import model.schemas.Crop;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
+import model.schemas.User;
 
 public class CropCRUD {
 
@@ -13,42 +15,58 @@ public class CropCRUD {
      *Method to add a Crop
      * @param crop
      */
-    public void addCrop(Crop crop){
+    public void addCrop(Crop crop)throws PersistenceException{
         EntityManager manager = EMFBootstrapper.openEntityManager();
         EntityTransaction transaction = manager.getTransaction();
-        try {
+
             transaction.begin();
             manager.persist(crop);
             transaction.commit();
-        }
-        catch(PersistenceException e) {
-            transaction.rollback();
-            throw e;
-        }
-        finally {
+
             manager.close();
-        }
+
     }
 
     /**
      * Method to delete a crop
      * @param crop
      */
-    public void deleteCrop(Crop crop){
+    public void deleteCrop(Crop crop)throws PersistenceException{
         EntityManager manager = EMFBootstrapper.openEntityManager();
         EntityTransaction transaction = manager.getTransaction();
-        try {
+
             transaction.begin();
             manager.remove(crop);
             transaction.commit();
-        }
-        catch(PersistenceException e) {
-            transaction.rollback();
-            throw e;
-        }
-        finally {
-            manager.close();
-        }
 
+            manager.close();
+
+    }
+    
+    /**
+     * Method to get a Crop given his name
+     * @param name
+     * @return Crop
+     */
+    public Crop getCrop(String name){
+        Crop crop;
+        EntityManager manager = EMFBootstrapper.openEntityManager();
+        crop = (Crop) manager.createQuery("from Crop u where u.crop_name = '"+ name +"' ").getSingleResult(); 
+        return crop;
+    }
+    
+    
+    /**
+     * Method to get a list of all the crops registered by a user
+     * @param user
+     * @return Crops List
+     */
+    public List<Crop> getCrops(User user){
+        List<Crop> crops;
+        EntityManager manager = EMFBootstrapper.openEntityManager();
+        
+        crops =  manager.createQuery("from Crop u where u.user = '" + user + "' ", Crop.class).getResultList();
+        
+        return crops;
     }
 }
