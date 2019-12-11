@@ -224,7 +224,7 @@ public class AddCrop_UI extends javax.swing.JPanel {
      *  
      * @return harvest date as String
      */
-    public String getHarvestDate(){
+    public String getHarvestDate(){       
         return recosecha.getDateFormatString();
     }
     /**

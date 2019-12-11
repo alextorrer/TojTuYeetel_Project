@@ -67,6 +67,7 @@ public class MainHome_Controller {
             data.put("seed_date", crop.getSeed_date().toString());
             data.put("harvest_date", crop.getHarvest_date().toString());
             data.put("bar", String.valueOf(progressBar(crop)));
+            data.put("location",crop.getLocation());
         }
         catch(Exception ex){
             ex.printStackTrace();
