@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import static view.MainHome.reporte;
 import static view.Sign_in.mprincipal;
@@ -42,6 +44,7 @@ public class TrackCrops_UI extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        ubicacion = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setMaximumSize(new java.awt.Dimension(1000, 626));
@@ -79,14 +82,15 @@ public class TrackCrops_UI extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel1.setText("Sembrado");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel2.setText("Cosecha");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel3.setText("Progreso");
+
+        ubicacion.setBackground(new java.awt.Color(255, 255, 255));
+        ubicacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ubicacion.setOpaque(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -95,13 +99,9 @@ public class TrackCrops_UI extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(B_regresar_mmenu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
                 .addComponent(nombre_cosecha, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(422, 422, 422))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(385, 385, 385)
-                .addComponent(barra_progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +124,13 @@ public class TrackCrops_UI extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(479, 479, 479)
                         .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(430, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(385, 385, 385)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(barra_progreso, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                    .addComponent(ubicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +142,7 @@ public class TrackCrops_UI extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(B_regresar_mmenu)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fecha_siembra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,7 +154,9 @@ public class TrackCrops_UI extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(barra_progreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGap(18, 18, 18)
+                .addComponent(ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(Bcosechar)
                 .addGap(141, 141, 141))
         );
@@ -177,6 +185,7 @@ public class TrackCrops_UI extends javax.swing.JPanel {
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel nombre_cosecha;
+    public javax.swing.JLabel ubicacion;
     // End of variables declaration//GEN-END:variables
 
 
@@ -213,9 +222,70 @@ public class TrackCrops_UI extends javax.swing.JPanel {
     public void displayData(HashMap<String,String> data){
         fecha_siembra.setText(data.get("seed_date"));
         fecha_cosecha.setText(data.get("harvest_date"));
-        barra_progreso.setValue(Integer.valueOf(data.get("bar")));
-        
+        //barra_progreso.setValue(Integer.valueOf(data.get("bar")));
+        int i =0;
+        int prog=328;
+        barra_progreso.setMinimum(0);
+        barra_progreso.setMaximum(100);
+         String seed = data.get("seed_date");
+         String harvest = data.get("harvest_date");
+        ubicacion.setText(data.get("location"));
+         setprog(seed,harvest);
     }
+    
+    public void setprog(String seed,String actual)
+    {              
+        //sembrado                
+        String[] fecha_hora = seed.split(" ");
+        
+        String[] fecha = fecha_hora[0].split("-");
+        
+        int ano = Integer.parseInt(fecha[0]);
+        int mes = Integer.parseInt(fecha[1]);
+        int dia = Integer.parseInt(fecha[2]);
+        
+       //fecha actual
+        LocalDateTime now = LocalDateTime.now();  
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+        
+        String datenow = now.format(formatter);
+        
+        
+        String[] fecha_hora2 = datenow.split("T");
+        
+        String[] fecha2 = fecha_hora2[0].split("-");
+        
+        int ano2 = Integer.parseInt(fecha2[0]);
+        int mes2 = Integer.parseInt(fecha2[1]);
+        int dia2 = Integer.parseInt(fecha2[2]);
+        
+        
+        
+        //cosecha
+        String harvest ="2019-12-30 13:07:19.29";
+                
+        String[] fecha_hora3 = harvest.split(" ");
+        
+        String[] fecha3 = fecha_hora3[0].split("-");
+        
+        int ano3 = Integer.parseInt(fecha3[0]);
+        int mes3 = Integer.parseInt(fecha3[1]);
+        int dia3 = Integer.parseInt(fecha3[2]);
+        
+        //total de tiempo a transcurrir
+        int tot = ((ano3-ano)*12+(mes3-mes))*30+(dia3-dia);
+        
+        //tiempo pasado
+        int timepast = ((ano2-ano)*12+(mes2-mes))*30+(dia2-dia);
+        
+        //porcentaje transcurrido
+        int por = (timepast*100)/tot;
+        
+        
+        barra_progreso.setValue(por);
+    }
+    
+    
     
     public int getBarWidth(){
        return barra_progreso.getWidth();
