@@ -17,6 +17,7 @@ public class TestApp {
         
         
         
+        /*
         //Importing some data
         User alex = new User();
         alex.setName("Alejandro");
@@ -25,6 +26,14 @@ public class TestApp {
         alex.setPhone("9999037192");
         alex.setUsername("alextorrer29");
         
+        User daniel = new User();
+        daniel.setName("Daniel");
+        daniel.setLast_name("Perez");
+        daniel.setEmail("daniel@correo.com");
+        daniel.setPhone("999958652");
+        daniel.setUsername("daniPerez_45");
+        
+
         Crop chileHab = new Crop();
         chileHab.setCrop_name("Chile habanero sur");
         chileHab.setType("Chile habanero");
@@ -57,20 +66,34 @@ public class TestApp {
         dragonAmarillo.setPlague("Dragon Amarillo");
         dragonAmarillo.setDescription("Encontré indicios de que hay una plaga de dragón amarillo en mi plantío de chiles habaneros");
         dragonAmarillo.setUser(new UserCRUD().getUserByEmail("alextorre@correo.com"));
+        */
+        Report acaro = new Report();
+        acaro.setTitle("Acaro Blanco en cítricos");
+        acaro.setPlague("Acaro Blanco");
+        acaro.setDescription("Tomen sus precauciones, al parecer el acaro blanco ya esta afectando a los citricos, me pasó con mis naranjas y limones");
+        acaro.setUser(new UserCRUD().getUserByEmail("daniel@correo.com"));
         
+        Report minador = new Report();
+        minador.setTitle("Nueva plaga");
+        minador.setPlague("Minador de hojas");
+        minador.setDescription("Tengan cuidado, anoche revisé mi invernadero y en mis calabazas noté unas manchas extrañas, investigué que puede ser una plaga llamada minador de hojas");
+        minador.setUser(new UserCRUD().getUserByEmail("daniel@correo.com"));
         
-        
-       /* UserCRUD usermodel = new UserCRUD();
-        usermodel.registerUser(alex); 
+        /*
+        UserCRUD usermodel = new UserCRUD();
+        usermodel.registerUser(daniel); 
         
         CropCRUD cropmodel = new CropCRUD();
         cropmodel.addCrop(chileHab);
         cropmodel.addCrop(pepino);
-     
         
         ReportCRUD reportmodel = new ReportCRUD();
-        reportmodel.createReport(dragonAmarillo);
-        */
+        reportmodel.createReport(acaro);
+        reportmodel.createReport(minador);
+     */
+        
+        
+        
     }
 
 }

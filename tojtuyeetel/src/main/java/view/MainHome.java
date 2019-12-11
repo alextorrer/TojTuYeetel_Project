@@ -14,6 +14,7 @@ import javax.swing.DefaultListModel;
 import controller.MainHome_Controller;
 import controller.FeedController;
 import exceptions.MyException;
+import model.schemas.Report;
 import javax.swing.table.DefaultTableModel;
 
 import static view.starter.entrar;
@@ -40,8 +41,10 @@ public class MainHome extends javax.swing.JPanel {
     DefaultListModel listModel;
     MainHome_Controller controller = new MainHome_Controller();
     
+    
     public MainHome() {
         initComponents();
+        postReports();
         setCropsNamesInList();
     }
     /**
@@ -59,7 +62,7 @@ public class MainHome extends javax.swing.JPanel {
         panel_mapa = new javax.swing.JPanel();
         myCrops_pnl = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        myCrops_list = new javax.swing.JList<String>();
+        myCrops_list = new javax.swing.JList<>();
         track_btn = new javax.swing.JButton();
         myCrops_lbl = new javax.swing.JLabel();
         logout_btn = new javax.swing.JButton();
@@ -77,7 +80,7 @@ public class MainHome extends javax.swing.JPanel {
 
         table_news.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+
             },
             new String [] {
                 "nombre", "titulo", "plaga", "descripcion"
@@ -330,6 +333,8 @@ public class MainHome extends javax.swing.JPanel {
             for(int i=0; i<currentCrops.size(); i++){
                 listModel.addElement(currentCrops.values().toArray()[i]);
             }
+            this.revalidate();
+            this.repaint();
         }
         catch(MyException ex){
             ex.showException(this);
@@ -357,10 +362,30 @@ public class MainHome extends javax.swing.JPanel {
      * @param plaga
      * @param desc 
      */
-    public void noticia(String nombre,String titulo,String plaga,String desc)
+    public void postReports()
     {
-        DefaultTableModel model = (DefaultTableModel) table_news.getModel(); 
-        model.addRow(new Object[]{nombre,titulo,plaga,desc});
+        List<Report> reports = controller.getReports();
+        DefaultTableModel model = (DefaultTableModel) table_news.getModel();
+        
+        for(int i = reports.size()-1; i>0; i--){
+            model.addRow(new Object[]{reports.get(i).getUser().getUsername(),
+                                       reports.get(i).getTitle(), 
+                                       reports.get(i).getPlague(),
+                                       reports.get(i).getDescription() });
+        }
+        
+    }
+    
+    /**
+     * Add to the table the last report registered
+     */
+    public void postLastReport(){
+        List<Report> reports = controller.getReports();
+        DefaultTableModel model = (DefaultTableModel) table_news.getModel();
+        model.addRow(new Object[]{reports.get(reports.size()-1).getUser().getUsername(),
+                                       reports.get(reports.size()-1).getTitle(), 
+                                       reports.get(reports.size()-1).getPlague(),
+                                       reports.get(reports.size()-1).getDescription()});
         
     }
 }

@@ -205,7 +205,8 @@ public class AddCrop_UI extends javax.swing.JPanel {
      * Method to change this window with the Home window
      */
     public void returnToHome(){
-        window.remove(agregar);        
+        window.remove(agregar); 
+        entrar.setCropsNamesInList();
         window.add(entrar);
         window.revalidate();
         window.repaint();

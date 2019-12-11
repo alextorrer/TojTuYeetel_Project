@@ -3,6 +3,8 @@ package controller;
 
 import exceptions.EmptyException;
 import exceptions.MyException;
+import exceptions.MyRuntimeException;
+import javax.persistence.PersistenceException;
 import javax.swing.JOptionPane;
 import model.CRUD.ReportCRUD;
 import model.CRUD.UserCRUD;
@@ -49,8 +51,8 @@ public class ReportPlague_Controller {
 
             crud.createReport(reporte);
       }
-      catch(Exception ex){
-          ex.printStackTrace();
+      catch(MyRuntimeException ex){
+          ex.showException();
       }
    
   }

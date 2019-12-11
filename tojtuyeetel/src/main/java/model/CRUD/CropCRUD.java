@@ -1,5 +1,6 @@
 package model.CRUD;
 
+import exceptions.MyRuntimeException;
 import java.util.List;
 import model.bootstrapper.EMFBootstrapper;
 import model.schemas.Crop;
@@ -48,7 +49,7 @@ public class CropCRUD {
      * @param name
      * @return Crop
      */
-    public Crop getCrop(String name){
+    public Crop getCrop(String name)throws PersistenceException{
         Crop crop;
         EntityManager manager = EMFBootstrapper.openEntityManager();
         crop = (Crop) manager.createQuery("from Crop u where u.crop_name = '"+ name +"' ").getSingleResult(); 
@@ -61,7 +62,7 @@ public class CropCRUD {
      * @param user_id
      * @return Crops List
      */
-    public List<Crop> getCrops(int user_id){
+    public List<Crop> getCrops(int user_id)throws PersistenceException{
         List<Crop> crops;
         EntityManager manager = EMFBootstrapper.openEntityManager();
         

@@ -177,7 +177,8 @@ public class ReportPlague_UI extends javax.swing.JPanel {
      * Method to change the actual window to the Home Window
      */
     public void returnToHome(){
-        window.remove(reporte);        
+        window.remove(reporte); 
+        entrar.postLastReport();
         window.add(entrar);
         
         window.repaint();

@@ -1,5 +1,6 @@
 package model.CRUD;
 
+import exceptions.MyRuntimeException;
 import java.util.List;
 import model.bootstrapper.EMFBootstrapper;
 import model.schemas.Report;
@@ -30,7 +31,7 @@ public class ReportCRUD {
      * Method to obtain the existing reports
      * @return reports
      */
-    public List<Report> getReports(){
+    public List<Report> getReports()throws PersistenceException{
         List<Report> reports;
         EntityManager manager = EMFBootstrapper.openEntityManager();
         reports = manager.createQuery("from Report", Report.class).getResultList();

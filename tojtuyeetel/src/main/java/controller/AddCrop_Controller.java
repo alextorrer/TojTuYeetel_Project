@@ -4,13 +4,14 @@ package controller;
 import exceptions.DateBeforeException;
 import exceptions.EmptyException;
 import exceptions.MyException;
-import exceptions.MyPersistenceException;
+import exceptions.MyRuntimeException;
 import exceptions.NameRegisteredException;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
 import model.CRUD.CropCRUD;
 import model.schemas.Crop;
 
@@ -77,8 +78,8 @@ import static view.starter.EMAIL;
                  
                  cropModel.addCrop(crop);
              }
-             catch(Exception ex){
-                 ex.printStackTrace();
+             catch(MyRuntimeException ex){
+                 ex.showException();
              }
              
          }
