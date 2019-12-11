@@ -1,6 +1,7 @@
 
 package controller;
 
+import exceptions.EmptyException;
 import exceptions.MyException;
 import javax.swing.JOptionPane;
 import model.CRUD.ReportCRUD;
@@ -17,9 +18,9 @@ public class ReportPlague_Controller {
     /**
      * Method to create a new plague report
      * @param view 
-     * @throws exceptions.MyException 
+     * @throws exceptions.EmptyException 
      */
-    public void report_crop(ReportPlague_UI view) throws MyException
+    public void report_crop(ReportPlague_UI view) throws EmptyException
  {
   ReportCRUD crud = new ReportCRUD();
 
@@ -57,7 +58,7 @@ public class ReportPlague_Controller {
   {
    if (campos == 0)
    {
-    JOptionPane.showMessageDialog(null, "POR FAVOR, LLENE TODOS LOS CAMPOS.\n");
+    throw new EmptyException();
    }
   }
  }
