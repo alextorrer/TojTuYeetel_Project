@@ -34,11 +34,11 @@
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="582" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="119" max="-2" attributes="0"/>
+                      <Component id="report_btn" min="-2" pref="119" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="add_cultivo" min="-2" max="-2" attributes="0"/>
+                      <Component id="addCrop_btn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="button_clo_ses" min="-2" max="-2" attributes="0"/>
+                      <Component id="logout_btn" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="Main_tabbed_panel" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -50,9 +50,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="button_clo_ses" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="add_cultivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="logout_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addCrop_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="report_btn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="Main_tabbed_panel" min="-2" pref="602" max="-2" attributes="0"/>
@@ -195,28 +195,28 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="button_clo_ses">
+    <Component class="javax.swing.JButton" name="logout_btn">
       <Properties>
         <Property name="text" type="java.lang.String" value="cerrar sesion"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_clo_sesActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logout_btnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="add_cultivo">
+    <Component class="javax.swing.JButton" name="addCrop_btn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Agregar cultivo"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_cultivoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCrop_btnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="report_btn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reportar plaga"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="report_btnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
