@@ -36,14 +36,6 @@ public class FeedController
             entrar.noticia(nombre, titulo, plaga, plaga);
         }
     }      */
-    public void noticias()
-    {
-        List<Report> reportes = new ReportCRUD().getReports();
-        for (int i=0;i<reportes.size();i++)
-        {           
-            //entrar.noticia(reportes.get(i).getUser().getUsername(), reportes.get(i).getTitle(), reportes.get(i).getPlague(), reportes.get(i).getDescription());
-        }
-        new MainHome().noticia(EMAIL, EMAIL, EMAIL, EMAIL);
-    }
+    
     
 }

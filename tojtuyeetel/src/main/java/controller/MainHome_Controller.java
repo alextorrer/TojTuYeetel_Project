@@ -77,6 +77,11 @@ public class MainHome_Controller {
         return data;
     }
     
+    public List<Report> getReports()
+    {
+        return new ReportCRUD().getReports();
+    }
+    
     
     public long progressBar(Crop crop){
         long value = 0;
