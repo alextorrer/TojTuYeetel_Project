@@ -306,7 +306,7 @@ public class MainHome extends javax.swing.JPanel {
             myCrops_list.setModel(listModel);
             
             for(int i=0; i<currentCrops.size(); i++){
-                listModel.addElement(currentCrops.values().toArray()[i]));
+                listModel.addElement(currentCrops.values().toArray()[i]);
             }
         }
         catch(MyException ex){
