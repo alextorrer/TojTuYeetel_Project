@@ -7,7 +7,13 @@ package view;
 
 import java.awt.Color;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import javax.swing.DefaultListModel;
+import controller.MainHome_Controller;
+import exceptions.MyException;
+
 import static view.Sign_in.mprincipal;
 import static view.starter.entrar;
 import static view.starter.window;
@@ -27,8 +33,15 @@ public class MainHome extends javax.swing.JPanel {
     public static ReportPlague_UI reporte;
     public int count;
     
+
+    HashMap<String,String> currentCrops;
+    DefaultListModel listModel;
+    MainHome_Controller controller = new MainHome_Controller();
+
+    
     public MainHome() {
-        initComponents();       
+        initComponents();
+        setCropsNamesInList();
         
     }
     /**
@@ -41,11 +54,14 @@ public class MainHome extends javax.swing.JPanel {
     private void initComponents() {
 
         Main_tabbed_panel = new javax.swing.JTabbedPane();
-        panel_mapa = new javax.swing.JPanel();
         table_news_scroll = new javax.swing.JScrollPane();
         table_news = new javax.swing.JTable();
-        table_cultivo_scroll = new javax.swing.JScrollPane();
-        table_cultivo = new javax.swing.JTable();
+        panel_mapa = new javax.swing.JPanel();
+        myCrops_pnl = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        myCrops_list = new javax.swing.JList<>();
+        track_btn = new javax.swing.JButton();
+        myCrops_lbl = new javax.swing.JLabel();
         logout_btn = new javax.swing.JButton();
         addCrop_btn = new javax.swing.JButton();
         report_btn = new javax.swing.JButton();
@@ -58,6 +74,21 @@ public class MainHome extends javax.swing.JPanel {
         Main_tabbed_panel.setMaximumSize(new java.awt.Dimension(1000, 626));
         Main_tabbed_panel.setMinimumSize(new java.awt.Dimension(1000, 626));
         Main_tabbed_panel.setPreferredSize(new java.awt.Dimension(1000, 626));
+
+        table_news.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "noticias"
+            }
+        ));
+        table_news_scroll.setViewportView(table_news);
+
+        Main_tabbed_panel.addTab("noticias", table_news_scroll);
 
         panel_mapa.setBackground(new java.awt.Color(204, 255, 204));
         panel_mapa.setMaximumSize(new java.awt.Dimension(1000, 626));
@@ -77,35 +108,56 @@ public class MainHome extends javax.swing.JPanel {
 
         Main_tabbed_panel.addTab("Mapa", panel_mapa);
 
-        table_news.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
-            },
-            new String [] {
-                "noticias"
+        myCrops_list.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                myCrops_listValueChanged(evt);
             }
-        ));
-        table_news_scroll.setViewportView(table_news);
+        });
+        jScrollPane1.setViewportView(myCrops_list);
 
-        Main_tabbed_panel.addTab("noticias", table_news_scroll);
-
-        table_cultivo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "cultivos", "mas informacion"
+        track_btn.setText("Track");
+        track_btn.setEnabled(false);
+        track_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                track_btnActionPerformed(evt);
             }
-        ));
-        table_cultivo_scroll.setViewportView(table_cultivo);
+        });
 
-        Main_tabbed_panel.addTab("mis cultivos", table_cultivo_scroll);
+        myCrops_lbl.setFont(new java.awt.Font("Harrington", 0, 36)); // NOI18N
+        myCrops_lbl.setText("Mis Cultivos");
+
+        javax.swing.GroupLayout myCrops_pnlLayout = new javax.swing.GroupLayout(myCrops_pnl);
+        myCrops_pnl.setLayout(myCrops_pnlLayout);
+        myCrops_pnlLayout.setHorizontalGroup(
+            myCrops_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myCrops_pnlLayout.createSequentialGroup()
+                .addGroup(myCrops_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(myCrops_pnlLayout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(track_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(myCrops_pnlLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(myCrops_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(399, Short.MAX_VALUE))
+        );
+        myCrops_pnlLayout.setVerticalGroup(
+            myCrops_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(myCrops_pnlLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addComponent(myCrops_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(myCrops_pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myCrops_pnlLayout.createSequentialGroup()
+                        .addComponent(track_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, myCrops_pnlLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))))
+        );
+
+        Main_tabbed_panel.addTab("Mis Cultivos", myCrops_pnl);
 
         logout_btn.setText("cerrar sesion");
         logout_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -170,16 +222,27 @@ public class MainHome extends javax.swing.JPanel {
          goToReport();
     }//GEN-LAST:event_report_btnActionPerformed
 
+    private void track_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_track_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_track_btnActionPerformed
+
+    private void myCrops_listValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_myCrops_listValueChanged
+        track_btn.setEnabled(true);
+    }//GEN-LAST:event_myCrops_listValueChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Main_tabbed_panel;
     private javax.swing.JButton addCrop_btn;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logout_btn;
+    private javax.swing.JLabel myCrops_lbl;
+    private javax.swing.JList<String> myCrops_list;
+    private javax.swing.JPanel myCrops_pnl;
     private javax.swing.JPanel panel_mapa;
     private javax.swing.JButton report_btn;
-    private javax.swing.JTable table_cultivo;
-    private javax.swing.JScrollPane table_cultivo_scroll;
     private javax.swing.JTable table_news;
     private javax.swing.JScrollPane table_news_scroll;
+    private javax.swing.JButton track_btn;
     // End of variables declaration//GEN-END:variables
 
 
@@ -229,5 +292,25 @@ public class MainHome extends javax.swing.JPanel {
         window.repaint();
         window.revalidate();
         window.setVisible(true);
+    }
+    
+    /**
+     * Method to set a model to the crops names list
+     */
+    public void setCropsNamesInList(){
+        currentCrops = new HashMap<>();
+        listModel = new DefaultListModel();
+        
+        try{
+            currentCrops = controller.getCropsNames();
+            myCrops_list.setModel(listModel);
+            
+            for(int i=0; i<currentCrops.size(); i++){
+                listModel.addElement(currentCrops.values().toArray()[i]));
+            }
+        }
+        catch(MyException ex){
+            ex.showException(this);
+        }
     }
 }
