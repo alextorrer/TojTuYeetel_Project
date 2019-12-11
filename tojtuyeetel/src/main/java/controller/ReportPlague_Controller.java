@@ -3,12 +3,12 @@ package controller;
 
 import exceptions.EmptyException;
 import exceptions.MyException;
-import exceptions.MyRuntimeException;
 import javax.persistence.PersistenceException;
 import javax.swing.JOptionPane;
 import model.CRUD.ReportCRUD;
 import model.CRUD.UserCRUD;
 import model.schemas.Report;
+import org.hibernate.HibernateException;
 import view.ReportPlague_UI;
 
 /**
@@ -51,9 +51,13 @@ public class ReportPlague_Controller {
 
             crud.createReport(reporte);
       }
-      catch(MyRuntimeException ex){
-          ex.showException();
+      
+      catch(HibernateException ex){
+          view.showHibernateExceptions(ex);
       }
+      catch(PersistenceException ex){
+          view.showPersistenceExceptions(ex);
+       }
    
   }
   else //EXCEPCIONES

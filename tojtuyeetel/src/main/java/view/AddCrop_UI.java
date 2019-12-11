@@ -9,6 +9,11 @@ import com.toedter.calendar.JDateChooser;
 import controller.AddCrop_Controller;
 import exceptions.MyException;
 import java.sql.Date;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
+import javax.swing.JOptionPane;
+import org.hibernate.HibernateException;
+import org.hibernate.JDBCException;
 import static view.MainHome.agregar;
 import static view.starter.entrar;
 import static view.starter.window;
@@ -265,4 +270,29 @@ public class AddCrop_UI extends javax.swing.JPanel {
         Date seed = new Date(sembrado.getDate().getTime());
         return seed;
     }
+    
+    /**
+     * Show in a JOptionPane the hibernate exceptions (incomplete)
+     * @param ex
+     */
+    public void showHibernateExceptions(HibernateException ex){
+        if(ex instanceof JDBCException){
+            JOptionPane.showMessageDialog(this, "Error de conexión" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "Error inesperado" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    /**
+     * Show in a JOptionPane the persistence exceptions (incomplete)
+     * @param ex
+     */
+    public void showPersistenceExceptions(PersistenceException ex){
+        if(ex instanceof NoResultException){
+            JOptionPane.showMessageDialog(this, "Información no encontrada" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "Error inesperado" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    
+}
 }
