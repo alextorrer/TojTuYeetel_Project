@@ -136,11 +136,17 @@ public class ReportPlague_UI extends javax.swing.JPanel {
                 .addGap(57, 57, 57))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Back to home button event
+     * @param evt 
+     */
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
         returnToHome();
     }//GEN-LAST:event_back_btnActionPerformed
-
+    /**
+     * Send the view reference to the controller to create a new report
+     * @param evt 
+     */
     private void sendReport_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendReport_btnActionPerformed
         
         try{

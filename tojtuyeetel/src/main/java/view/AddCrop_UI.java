@@ -162,7 +162,10 @@ public class AddCrop_UI extends javax.swing.JPanel {
                 .addGap(74, 74, 74))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Send the view reference to the controller to add a Crop
+     * @param evt 
+     */
     private void b_registrar_cultivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_registrar_cultivoActionPerformed
         try{
             controller.add_crop(this);
@@ -172,7 +175,10 @@ public class AddCrop_UI extends javax.swing.JPanel {
             ex.showException(this);
         }
     }//GEN-LAST:event_b_registrar_cultivoActionPerformed
-
+    /**
+     * Return to the main menu
+     * @param evt 
+     */
     private void b_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_regresarActionPerformed
         returnToHome();
     }//GEN-LAST:event_b_regresarActionPerformed
@@ -207,28 +213,53 @@ public class AddCrop_UI extends javax.swing.JPanel {
         window.setVisible(true);
     }
     
-    
+    /**
+     * 
+     * @return seed date as String
+     */
     public String getSeedDate(){
         return sembrado.getDateFormatString();
     }
+    /**
+     *  
+     * @return harvest date as String
+     */
     public String getHarvestDate(){
         return recosecha.getDateFormatString();
     }
+    /**
+     * 
+     * @return Title textField text
+     */
     public String getTitle(){
         return titulo.getText();
     }
+    /**
+     * 
+     * @return Location textfield text
+     */
     public String getUbicacion(){
         return ubicacion.getText();
     }
+    /**
+     * 
+     * @return Selected item on a list as String
+     */
     public String getTipo(){
         return cosecha.getSelectedItem().toString();
     }
-
+    /**
+     * 
+     * @return harvest date as Sql Date
+     */
     public Date getRecosecha() {
         Date harvest = new Date(recosecha.getDate().getTime());
         return harvest;
     }
-
+    /**
+     * 
+     * @return seed date as Sql Date
+     */
     public Date getSembrado() {
         Date seed = new Date(sembrado.getDate().getTime());
         return seed;

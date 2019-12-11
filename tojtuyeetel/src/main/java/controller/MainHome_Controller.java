@@ -2,13 +2,19 @@
 package controller;
 
 import exceptions.MyException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import model.CRUD.CropCRUD;
+import model.CRUD.ReportCRUD;
 import model.CRUD.UserCRUD;
 import model.schemas.Crop;
+import model.schemas.Report;
 import model.schemas.User;
+import view.MainHome;
+import view.TrackCrops_UI;
 import static view.starter.EMAIL;
+import static view.starter.entrar;
 
 /**
  * Controller class to manage the view corresponding to the app´s home
@@ -18,7 +24,7 @@ public class MainHome_Controller {
     
     CropCRUD cropModel = new CropCRUD();
     UserCRUD userModel = new UserCRUD();
-    
+    ReportCRUD reportModel = new ReportCRUD();
     
     /**
      * Method to return the names of the current crops
@@ -60,6 +66,7 @@ public class MainHome_Controller {
             crop = cropModel.getCrop(name);
             data.put("seed_date", crop.getSeed_date().toString());
             data.put("harvest_date", crop.getHarvest_date().toString());
+            data.put("bar", String.valueOf(progressBar(crop)));
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -67,4 +74,18 @@ public class MainHome_Controller {
         
         return data;
     }
+    
+    
+    public long progressBar(Crop crop){
+        long value = 0;
+        Date seed = crop.getSeed_date();
+        Date harv = crop.getHarvest_date();
+        Date aux = new Date();
+        
+        long time = harv.getTime() - seed.getTime();
+        long now = aux.getTime();
+        
+        value = now * (new TrackCrops_UI().getBarWidth())/time;
+        return value;
+    }  
 }

@@ -154,7 +154,10 @@ public class TrackCrops_UI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    /**
+     * Back button event
+     * @param evt 
+     */
     private void B_regresar_mmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_regresar_mmenuActionPerformed
         returnToHome();
     }//GEN-LAST:event_B_regresar_mmenuActionPerformed
@@ -210,6 +213,12 @@ public class TrackCrops_UI extends javax.swing.JPanel {
     public void displayData(HashMap<String,String> data){
         fecha_siembra.setText(data.get("seed_date"));
         fecha_cosecha.setText(data.get("harvest_date"));
+        barra_progreso.setValue(Integer.valueOf(data.get("bar")));
+        
+    }
+    
+    public int getBarWidth(){
+       return barra_progreso.getWidth();
     }
 }
 

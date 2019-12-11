@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.HashMap;
 import javax.swing.DefaultListModel;
 import controller.MainHome_Controller;
+import controller.FeedController;
 import exceptions.MyException;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,11 +39,10 @@ public class MainHome extends javax.swing.JPanel {
     HashMap<String,String> currentCrops;
     DefaultListModel listModel;
     MainHome_Controller controller = new MainHome_Controller();
-
     
     public MainHome() {
         initComponents();
-        setCropsNamesInList(); 
+        setCropsNamesInList();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -212,23 +212,38 @@ public class MainHome extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Return to the sign in UI
+     * @param evt 
+     */
     private void logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_btnActionPerformed
         returnToSignIn();         
     }//GEN-LAST:event_logout_btnActionPerformed
-
+    /**
+     * Go to the add Crop UI
+     * @param evt 
+     */
     private void addCrop_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCrop_btnActionPerformed
         goToAddCrop();
     }//GEN-LAST:event_addCrop_btnActionPerformed
-
+    /**
+     * Go to the report UI
+     * @param evt 
+     */
     private void report_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_report_btnActionPerformed
         goToReport();
     }//GEN-LAST:event_report_btnActionPerformed
-
+    /**
+     * Go to the tracking UI
+     * @param evt 
+     */
     private void track_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_track_btnActionPerformed
        showCropData();
     }//GEN-LAST:event_track_btnActionPerformed
-
+    /**
+     * Enables the button if there is a selection on the list
+     * @param evt 
+     */
     private void myCrops_listValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_myCrops_listValueChanged
         track_btn.setEnabled(true);
     }//GEN-LAST:event_myCrops_listValueChanged
@@ -335,9 +350,17 @@ public class MainHome extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Add a new row on the reports table
+     * @param nombre
+     * @param titulo
+     * @param plaga
+     * @param desc 
+     */
     public void noticia(String nombre,String titulo,String plaga,String desc)
     {
         DefaultTableModel model = (DefaultTableModel) table_news.getModel(); 
         model.addRow(new Object[]{nombre,titulo,plaga,desc});
+        
     }
 }
