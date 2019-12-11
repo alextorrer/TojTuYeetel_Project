@@ -40,7 +40,7 @@ import static view.starter.EMAIL;
          */
      public void add_crop(AddCrop_UI view) throws EmptyException, DateBeforeException, NameRegisteredException{
          
-         Crop crop = null;
+         Crop crop = new Crop();
          User user;
          Map<String,String> data = new HashMap<>();
          data.put("crop_name", view.getTitle());

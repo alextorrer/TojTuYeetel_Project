@@ -201,9 +201,9 @@ public class AddCrop_UI extends javax.swing.JPanel {
     public void returnToHome(){
         window.remove(agregar);        
         window.add(entrar);
-        
-        window.repaint();
         window.revalidate();
+        window.repaint();
+        
         window.setVisible(true);
     }
     

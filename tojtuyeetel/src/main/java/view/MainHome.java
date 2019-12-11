@@ -41,8 +41,7 @@ public class MainHome extends javax.swing.JPanel {
     
     public MainHome() {
         initComponents();
-        setCropsNamesInList();
-        
+        setCropsNamesInList(); 
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -257,9 +256,9 @@ public class MainHome extends javax.swing.JPanel {
         
 
         window.add(presentacion);
-        
-        window.repaint();
         window.revalidate();
+        window.repaint();
+        
         
         window.setVisible(true);
     }
@@ -275,8 +274,9 @@ public class MainHome extends javax.swing.JPanel {
         window.remove(entrar);
 
         window.add(agregar);
-        window.repaint();
         window.revalidate();
+        window.repaint();
+        
         window.setVisible(true);
     }
     
@@ -289,8 +289,9 @@ public class MainHome extends javax.swing.JPanel {
         reporte.setSize(1000, 626);
         window.remove(entrar);
         window.add(reporte);
-        window.repaint();
         window.revalidate();
+        window.repaint();
+
         window.setVisible(true);
     }
     
