@@ -14,8 +14,18 @@ import view.ReportPlague_UI;
 
 import javax.swing.JOptionPane;
 
+
+/**
+ * Class to manage the corresponding view to add a new crop
+ * 
+ */
 public class AddCrop_Controller
 {
+    
+    /**
+     * Method to add/register a new crop
+     * @param view 
+     */
  public void add_crop(AddCrop_UI view)
  {
   CropCRUD crud = new CropCRUD();
@@ -78,43 +88,6 @@ public class AddCrop_Controller
    {
     JOptionPane.showMessageDialog(null, "YA HAY UNA COSECHA CON EL MISMO NOMBRE.\n");
     debounce = 1;
-   }
-  }
- }
-
- public void report_crop(ReportPlague_UI view)
- {
-  ReportCRUD crud = new ReportCRUD();
-
-  //Aqui las cosas a validar. Tienen que estar todas en 1 para continuar.
-  int campos = 0; //campos llenos
-
-  //Verificar que no haya informacion vacia
-  if (view.titulo.getText().isEmpty() == false && //Titulo de reporte
-      view.tipoplaga.getSelectedItem().toString().isEmpty() == false && //Tipo de plaga
-      view.descripcao.getText().isEmpty () == false
-     )
-  {
-   campos = 1;
-  }
-
-  //Enviar cosas al model si todo esta en orden
-  if (campos == 1)
-  {
-   UserCRUD crud2 = new UserCRUD();
-   Report reporte = new Report();
-   reporte.setUser(crud2.getUserByEmail("alextorre@correo.com"));
-   reporte.setTitle(view.titulo.getText());
-   reporte.setPlague(view.tipoplaga.getSelectedItem().toString());
-   reporte.setDescription(view.descripcao.getText());
-   
-   crud.createReport(reporte);
-  }
-  else //EXCEPCIONES
-  {
-   if (campos == 0)
-   {
-    JOptionPane.showMessageDialog(null, "POR FAVOR, LLENE TODOS LOS CAMPOS.\n");
    }
   }
  }

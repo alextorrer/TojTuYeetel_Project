@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 /**
- *
- * @author alext
+ *Controller class to manage the view responsible of showing the crop information to keep track
  */
 public class TrackCrops_Controller {
     
