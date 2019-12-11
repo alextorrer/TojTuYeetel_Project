@@ -5,8 +5,9 @@
  */
 package view;
 
+import controller.AddCrop_Controller;
+import exceptions.MyException;
 import static view.MainHome.agregar;
-import static view.Sign_in.mprincipal;
 import static view.starter.entrar;
 import static view.starter.window;
 
@@ -16,6 +17,7 @@ import static view.starter.window;
  */
 public class AddCrop_UI extends javax.swing.JPanel {
 
+    AddCrop_Controller controller = new AddCrop_Controller();
     /**
      * Creates new form agregar_cultivo
      */
@@ -160,21 +162,17 @@ public class AddCrop_UI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_registrar_cultivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_registrar_cultivoActionPerformed
-        window.remove(agregar);        
-        window.add(entrar);
-        
-        window.repaint();
-        window.revalidate();
-        window.setVisible(true);
+        try{
+            controller.add_crop(this);
+            returnToHome();
+        }
+        catch(MyException ex){
+            ex.showException(this);
+        }
     }//GEN-LAST:event_b_registrar_cultivoActionPerformed
 
     private void b_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_regresarActionPerformed
-        window.remove(agregar);        
-        window.add(entrar);
-        
-        window.repaint();
-        window.revalidate();
-        window.setVisible(true);
+        returnToHome();
     }//GEN-LAST:event_b_regresarActionPerformed
 
 
@@ -193,4 +191,17 @@ public class AddCrop_UI extends javax.swing.JPanel {
     public javax.swing.JTextField titulo;
     public javax.swing.JTextField ubicacion;
     // End of variables declaration//GEN-END:variables
+
+
+    /**
+     * Method to change this window with the Home window
+     */
+    public void returnToHome(){
+        window.remove(agregar);        
+        window.add(entrar);
+        
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+    }
 }

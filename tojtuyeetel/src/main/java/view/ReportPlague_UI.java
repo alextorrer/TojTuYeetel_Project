@@ -5,6 +5,9 @@
  */
 package view;
 
+import controller.ReportPlague_Controller;
+import exceptions.MyException;
+import javax.swing.JOptionPane;
 import static view.MainHome.reporte;
 import static view.starter.entrar;
 import static view.starter.window;
@@ -15,6 +18,8 @@ import static view.starter.window;
  */
 public class ReportPlague_UI extends javax.swing.JPanel {
 
+    ReportPlague_Controller controller = new ReportPlague_Controller();
+    
     /**
      * Creates new form report_plaga
      */
@@ -133,21 +138,20 @@ public class ReportPlague_UI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
-        window.remove(reporte);        
-        window.add(entrar);
-        
-        window.repaint();
-        window.revalidate();
-        window.setVisible(true);
+        returnToHome();
     }//GEN-LAST:event_back_btnActionPerformed
 
     private void sendReport_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendReport_btnActionPerformed
-        window.remove(reporte);        
-        window.add(entrar);
         
-        window.repaint();
-        window.revalidate();
-        window.setVisible(true);
+        try{
+            controller.report_crop(this);
+            returnToHome();
+        }
+        catch(MyException ex){
+            ex.showException(this);
+        }
+        
+        
     }//GEN-LAST:event_sendReport_btnActionPerformed
 
 
@@ -162,4 +166,17 @@ public class ReportPlague_UI extends javax.swing.JPanel {
     public javax.swing.JComboBox tipoplaga;
     public javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * Method to change the actual window to the Home Window
+     */
+    public void returnToHome(){
+        window.remove(reporte);        
+        window.add(entrar);
+        
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+    }
+    
 }
