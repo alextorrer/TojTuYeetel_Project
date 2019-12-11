@@ -62,31 +62,15 @@ public class AddCrop_UI extends javax.swing.JPanel {
         cosecha.setMaximumRowCount(4);
         cosecha.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chile Habanero", "Calabaza", "Pepino", "Chile Serrano" }));
         cosecha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        cosecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cosechaActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         jLabel1.setText("Agregar cosecha");
 
         b_registrar_cultivo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         b_registrar_cultivo.setText("Registrar cultivo");
-        b_registrar_cultivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                b_registrar_cultivoMouseClicked(evt);
-            }
-        });
         b_registrar_cultivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_registrar_cultivoActionPerformed(evt);
-            }
-        });
-
-        ubicacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ubicacionActionPerformed(evt);
             }
         });
 
@@ -97,11 +81,6 @@ public class AddCrop_UI extends javax.swing.JPanel {
         jLabel3.setText("Nombre:");
 
         b_regresar.setText("Regresar");
-        b_regresar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                b_regresarMouseClicked(evt);
-            }
-        });
         b_regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b_regresarActionPerformed(evt);
@@ -181,41 +160,22 @@ public class AddCrop_UI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b_registrar_cultivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_registrar_cultivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_registrar_cultivoActionPerformed
-
-    private void cosechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cosechaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cosechaActionPerformed
-
-    private void b_registrar_cultivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_registrar_cultivoMouseClicked
-        // TODO add your handling code here:            
-        
-        window.remove(agregar);        
-        window.add(entrar);
-        
-        window.repaint();
-        window.revalidate();
-        window.setVisible(true);        
-    }//GEN-LAST:event_b_registrar_cultivoMouseClicked
-
-    private void b_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_regresarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b_regresarActionPerformed
-
-    private void b_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_regresarMouseClicked
-        // TODO add your handling code here:
         window.remove(agregar);        
         window.add(entrar);
         
         window.repaint();
         window.revalidate();
         window.setVisible(true);
-    }//GEN-LAST:event_b_regresarMouseClicked
+    }//GEN-LAST:event_b_registrar_cultivoActionPerformed
 
-    private void ubicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubicacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ubicacionActionPerformed
+    private void b_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_regresarActionPerformed
+        window.remove(agregar);        
+        window.add(entrar);
+        
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+    }//GEN-LAST:event_b_regresarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
