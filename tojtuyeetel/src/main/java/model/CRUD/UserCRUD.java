@@ -1,5 +1,6 @@
 package model.CRUD;
 
+import exceptions.MyPersistenceException;
 import model.bootstrapper.EMFBootstrapper;
 import model.schemas.User;
 

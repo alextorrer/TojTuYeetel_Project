@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
 import model.CRUD.CropCRUD;
 import model.schemas.Crop;
 
@@ -77,7 +78,7 @@ import static view.starter.EMAIL;
                  
                  cropModel.addCrop(crop);
              }
-             catch(Exception ex){
+             catch(PersistenceException ex){
                  ex.printStackTrace();
              }
              

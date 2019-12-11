@@ -2,9 +2,11 @@
 package controller;
 
 import exceptions.MyException;
+import exceptions.MyPersistenceException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import javax.persistence.PersistenceException;
 import model.CRUD.CropCRUD;
 import model.CRUD.ReportCRUD;
 import model.CRUD.UserCRUD;
@@ -44,8 +46,8 @@ public class MainHome_Controller {
                 cropNames.put(String.valueOf(i), cropsList.get(i).getCrop_name());
             }
         }
-        catch(Exception ex){
-            ex.printStackTrace();
+        catch(PersistenceException ex){
+            
         }
         
         return cropNames;
@@ -68,7 +70,7 @@ public class MainHome_Controller {
             data.put("harvest_date", crop.getHarvest_date().toString());
             data.put("bar", String.valueOf(progressBar(crop)));
         }
-        catch(Exception ex){
+        catch(PersistenceException ex){
             ex.printStackTrace();
         }
         
