@@ -81,7 +81,7 @@ public class MainHome extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "noticias", "Title 2", "Title 3", "Title 4"
+                "nombre", "titulo", "plaga", "descripcion"
             }
         ));
         table_news.setToolTipText("");
