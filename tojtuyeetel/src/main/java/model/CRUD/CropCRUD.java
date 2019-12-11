@@ -65,7 +65,8 @@ public class CropCRUD {
         List<Crop> crops;
         EntityManager manager = EMFBootstrapper.openEntityManager();
         
-        crops =  manager.createQuery("from Crop u where u.crop_from_user_id = '" + user_id + "' ", Crop.class).getResultList();
+        crops = manager.createQuery("from Crop").getResultList();
+        //crops =  manager.createQuery("from Crop u where u.crop_from_user_id = '" + user_id + "' ", Crop.class).getResultList();
         
         return crops;
     }

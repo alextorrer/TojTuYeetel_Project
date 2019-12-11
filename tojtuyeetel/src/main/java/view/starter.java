@@ -18,6 +18,7 @@ public class starter
 {
     public static base_frame window;
     public static MainHome entrar;
+    public static final String EMAIL = "alextorre@correo.com";
     
     public static void main (String args[])
     {
