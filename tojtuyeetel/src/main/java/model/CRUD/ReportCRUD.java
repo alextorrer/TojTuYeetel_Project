@@ -1,6 +1,6 @@
 package model.CRUD;
 
-import exceptions.MyRuntimeException;
+
 import java.util.List;
 import model.bootstrapper.EMFBootstrapper;
 import model.schemas.Report;

@@ -4,7 +4,6 @@ package controller;
 import exceptions.DateBeforeException;
 import exceptions.EmptyException;
 import exceptions.MyException;
-import exceptions.MyRuntimeException;
 import exceptions.NameRegisteredException;
 import java.sql.Date;
 import java.util.HashMap;
@@ -20,6 +19,7 @@ import view.AddCrop_UI;
 import javax.swing.JOptionPane;
 import model.CRUD.UserCRUD;
 import model.schemas.User;
+import org.hibernate.HibernateException;
 import static view.starter.EMAIL;
 
 
@@ -78,8 +78,11 @@ import static view.starter.EMAIL;
                  
                  cropModel.addCrop(crop);
              }
-             catch(MyRuntimeException ex){
-                 ex.showException();
+             catch(HibernateException ex){
+                view.showHibernateExceptions(ex);
+            }
+            catch(PersistenceException ex){
+                view.showPersistenceExceptions(ex);
              }
              
          }

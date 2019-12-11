@@ -2,7 +2,6 @@
 package controller;
 
 import exceptions.MyException;
-import exceptions.MyRuntimeException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +12,7 @@ import model.CRUD.UserCRUD;
 import model.schemas.Crop;
 import model.schemas.Report;
 import model.schemas.User;
+import org.hibernate.HibernateException;
 import view.MainHome;
 import view.TrackCrops_UI;
 import static view.starter.EMAIL;
@@ -71,9 +71,12 @@ public class MainHome_Controller {
             data.put("bar", String.valueOf(progressBar(crop)));
             data.put("location",crop.getLocation());
         }
-        catch(MyRuntimeException ex){
-            ex.showException();
-        }
+        catch(HibernateException ex){
+                new MainHome().showHibernateExceptions(ex);
+            }
+            catch(PersistenceException ex){
+                new MainHome().showPersistenceExceptions(ex);
+             }
         
         return data;
     }

@@ -8,6 +8,11 @@ package view;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceException;
+import javax.swing.JOptionPane;
+import org.hibernate.HibernateException;
+import org.hibernate.JDBCException;
 import static view.MainHome.reporte;
 import static view.Sign_in.mprincipal;
 import static view.starter.entrar;
@@ -290,6 +295,31 @@ public class TrackCrops_UI extends javax.swing.JPanel {
     public int getBarWidth(){
        return barra_progreso.getWidth();
     }
+    
+    /**
+     * Show in a JOptionPane the hibernate exceptions (incomplete)
+     * @param ex
+     */
+    public void showHibernateExceptions(HibernateException ex){
+        if(ex instanceof JDBCException){
+            JOptionPane.showMessageDialog(this, "Error de conexión" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "Error inesperado" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    /**
+     * Show in a JOptionPane the persistence exceptions (incomplete)
+     * @param ex
+     */
+    public void showPersistenceExceptions(PersistenceException ex){
+        if(ex instanceof NoResultException){
+            JOptionPane.showMessageDialog(this, "Información no encontrada" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "Error inesperado" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    
+}
 }
 
 
