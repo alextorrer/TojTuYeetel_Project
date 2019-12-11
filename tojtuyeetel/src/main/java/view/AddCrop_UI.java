@@ -5,8 +5,10 @@
  */
 package view;
 
+import com.toedter.calendar.JDateChooser;
 import controller.AddCrop_Controller;
 import exceptions.MyException;
+import java.sql.Date;
 import static view.MainHome.agregar;
 import static view.starter.entrar;
 import static view.starter.window;
@@ -203,5 +205,32 @@ public class AddCrop_UI extends javax.swing.JPanel {
         window.repaint();
         window.revalidate();
         window.setVisible(true);
+    }
+    
+    
+    public String getSeedDate(){
+        return sembrado.getDateFormatString();
+    }
+    public String getHarvestDate(){
+        return recosecha.getDateFormatString();
+    }
+    public String getTitle(){
+        return titulo.getText();
+    }
+    public String getUbicacion(){
+        return ubicacion.getText();
+    }
+    public String getTipo(){
+        return cosecha.getSelectedItem().toString();
+    }
+
+    public Date getRecosecha() {
+        Date harvest = new Date(recosecha.getDate().getTime());
+        return harvest;
+    }
+
+    public Date getSembrado() {
+        Date seed = new Date(sembrado.getDate().getTime());
+        return seed;
     }
 }
