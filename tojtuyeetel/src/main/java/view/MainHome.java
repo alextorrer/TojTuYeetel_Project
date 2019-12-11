@@ -59,7 +59,7 @@ public class MainHome extends javax.swing.JPanel {
         panel_mapa = new javax.swing.JPanel();
         myCrops_pnl = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        myCrops_list = new javax.swing.JList<String>();
+        myCrops_list = new javax.swing.JList<>();
         track_btn = new javax.swing.JButton();
         myCrops_lbl = new javax.swing.JLabel();
         logout_btn = new javax.swing.JButton();
@@ -330,6 +330,8 @@ public class MainHome extends javax.swing.JPanel {
             for(int i=0; i<currentCrops.size(); i++){
                 listModel.addElement(currentCrops.values().toArray()[i]);
             }
+            this.revalidate();
+            this.repaint();
         }
         catch(MyException ex){
             ex.showException(this);
