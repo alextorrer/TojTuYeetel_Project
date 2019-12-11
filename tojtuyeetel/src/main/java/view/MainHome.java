@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.HashMap;
 import javax.swing.DefaultListModel;
 import controller.MainHome_Controller;
+import controller.FeedController;
 import exceptions.MyException;
 import javax.swing.table.DefaultTableModel;
 
@@ -38,11 +39,10 @@ public class MainHome extends javax.swing.JPanel {
     HashMap<String,String> currentCrops;
     DefaultListModel listModel;
     MainHome_Controller controller = new MainHome_Controller();
-
     
     public MainHome() {
         initComponents();
-        setCropsNamesInList(); 
+        setCropsNamesInList();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -350,9 +350,17 @@ public class MainHome extends javax.swing.JPanel {
         }
     }
     
+    /**
+     * Add a new row on the reports table
+     * @param nombre
+     * @param titulo
+     * @param plaga
+     * @param desc 
+     */
     public void noticia(String nombre,String titulo,String plaga,String desc)
     {
         DefaultTableModel model = (DefaultTableModel) table_news.getModel(); 
         model.addRow(new Object[]{nombre,titulo,plaga,desc});
+        
     }
 }
