@@ -1,17 +1,13 @@
 package controller;
 
 //model
+import exceptions.MyPersistenceException;
 import model.CRUD.CropCRUD;
 import model.schemas.Crop;
-import model.CRUD.ReportCRUD;
-import model.schemas.Report;
-import model.CRUD.UserCRUD;
-import model.schemas.User;
+
 
 //views
 import view.AddCrop_UI;
-import view.ReportPlague_UI;
-
 import javax.swing.JOptionPane;
 
 
@@ -63,14 +59,20 @@ public class AddCrop_Controller
   //Enviar cosas al model si todo esta en orden
   if (campos == 1 && veracidad == 1 && unicaYdiferente == 1)
   {
-   Crop seedy = new Crop();
-   seedy.setCrop_name(view.titulo.getText());
-   seedy.setType(view.cosecha.getSelectedItem().toString());
-   seedy.setSeed_date(view.sembrado.getDate());
-   seedy.setHarvest_date(view.recosecha.getDate());
-   seedy.setLocation(view.ubicacion.getText());
+      try{
+        Crop seedy = new Crop();
+        seedy.setCrop_name(view.titulo.getText());
+        seedy.setType(view.cosecha.getSelectedItem().toString());
+        seedy.setSeed_date(view.sembrado.getDate());
+        seedy.setHarvest_date(view.recosecha.getDate());
+        seedy.setLocation(view.ubicacion.getText());
 
-   crud.addCrop(seedy);
+        crud.addCrop(seedy);
+        
+      }catch(MyPersistenceException ex){
+          ex.showError(view);
+      }
+   
   }
   else //EXCEPCIONES
   {
