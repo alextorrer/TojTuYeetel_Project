@@ -13,6 +13,7 @@ import java.util.HashMap;
 import javax.swing.DefaultListModel;
 import controller.MainHome_Controller;
 import exceptions.MyException;
+import javax.swing.table.DefaultTableModel;
 
 import static view.starter.entrar;
 import static view.starter.window;
@@ -59,7 +60,7 @@ public class MainHome extends javax.swing.JPanel {
         panel_mapa = new javax.swing.JPanel();
         myCrops_pnl = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        myCrops_list = new javax.swing.JList<>();
+        myCrops_list = new javax.swing.JList<String>();
         track_btn = new javax.swing.JButton();
         myCrops_lbl = new javax.swing.JLabel();
         logout_btn = new javax.swing.JButton();
@@ -77,15 +78,18 @@ public class MainHome extends javax.swing.JPanel {
 
         table_news.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null, null}
             },
             new String [] {
-                "noticias"
+                "noticias", "Title 2", "Title 3", "Title 4"
             }
         ));
+        table_news.setToolTipText("");
+        table_news.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        table_news.setEnabled(false);
+        table_news.setFocusable(false);
+        table_news.setRowHeight(90);
+        table_news.setRowMargin(10);
         table_news_scroll.setViewportView(table_news);
 
         Main_tabbed_panel.addTab("noticias", table_news_scroll);
@@ -328,5 +332,11 @@ public class MainHome extends javax.swing.JPanel {
         catch(MyException ex){
             ex.showException(this);
         }
+    }
+    
+    public void noticia(String nombre,String titulo,String plaga,String desc)
+    {
+        DefaultTableModel model = (DefaultTableModel) table_news.getModel(); 
+        model.addRow(new Object[]{nombre,titulo,plaga,desc});
     }
 }
