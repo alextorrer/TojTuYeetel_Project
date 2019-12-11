@@ -108,11 +108,6 @@ public class MainHome extends javax.swing.JPanel {
         Main_tabbed_panel.addTab("mis cultivos", table_cultivo_scroll);
 
         button_clo_ses.setText("cerrar sesion");
-        button_clo_ses.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_clo_sesMouseClicked(evt);
-            }
-        });
         button_clo_ses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_clo_sesActionPerformed(evt);
@@ -120,11 +115,6 @@ public class MainHome extends javax.swing.JPanel {
         });
 
         add_cultivo.setText("Agregar cultivo");
-        add_cultivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                add_cultivoMouseClicked(evt);
-            }
-        });
         add_cultivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_cultivoActionPerformed(evt);
@@ -132,9 +122,9 @@ public class MainHome extends javax.swing.JPanel {
         });
 
         jButton1.setText("Reportar plaga");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -168,7 +158,7 @@ public class MainHome extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void button_clo_sesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clo_sesMouseClicked
+    private void button_clo_sesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_clo_sesActionPerformed
         // TODO add your handling code here:    
         presentacion = new Sign_in();
         presentacion.setSize(1000, 626);
@@ -181,19 +171,11 @@ public class MainHome extends javax.swing.JPanel {
         window.repaint();
         window.revalidate();
         
-        window.setVisible(true);        
-    }//GEN-LAST:event_button_clo_sesMouseClicked
-
-    private void button_clo_sesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_clo_sesActionPerformed
-        // TODO add your handling code here:
+        window.setVisible(true); 
     }//GEN-LAST:event_button_clo_sesActionPerformed
 
     private void add_cultivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_cultivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_cultivoActionPerformed
 
-    private void add_cultivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_cultivoMouseClicked
-        // TODO add your handling code here:
         agregar = new AddCrop_UI();
 
         agregar.setSize(1000,626);
@@ -204,10 +186,9 @@ public class MainHome extends javax.swing.JPanel {
         window.repaint();
         window.revalidate();
         window.setVisible(true);
-    }//GEN-LAST:event_add_cultivoMouseClicked
+    }//GEN-LAST:event_add_cultivoActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         reporte = new ReportPlague_UI();
         
         reporte.setSize(1000, 626);
@@ -215,8 +196,8 @@ public class MainHome extends javax.swing.JPanel {
         window.add(reporte);
         window.repaint();
         window.revalidate();
-        window.setVisible(true);      
-    }//GEN-LAST:event_jButton1MouseClicked
+        window.setVisible(true); 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane Main_tabbed_panel;

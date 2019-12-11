@@ -60,16 +60,16 @@ public class TrackCrops_UI extends javax.swing.JPanel {
 
         Bcosechar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Bcosechar.setText("Cosechar");
+        Bcosechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BcosecharActionPerformed(evt);
+            }
+        });
 
         nombre_cosecha.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         nombre_cosecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         B_regresar_mmenu.setText("regresar");
-        B_regresar_mmenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                B_regresar_mmenuMouseClicked(evt);
-            }
-        });
         B_regresar_mmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B_regresar_mmenuActionPerformed(evt);
@@ -152,8 +152,7 @@ public class TrackCrops_UI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void B_regresar_mmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_regresar_mmenuMouseClicked
-        // TODO add your handling code here:
+    private void B_regresar_mmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_regresar_mmenuActionPerformed
         //removedores removedor = new removedores();
         //removedor.remueve_panel_seguicosecha(this);
         window.remove(this);
@@ -161,11 +160,11 @@ public class TrackCrops_UI extends javax.swing.JPanel {
         window.repaint();
         window.revalidate();
         window.setVisible(true);
-    }//GEN-LAST:event_B_regresar_mmenuMouseClicked
-
-    private void B_regresar_mmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_regresar_mmenuActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_B_regresar_mmenuActionPerformed
+
+    private void BcosecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcosecharActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BcosecharActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

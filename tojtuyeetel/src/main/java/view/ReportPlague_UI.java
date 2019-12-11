@@ -36,8 +36,8 @@ public class ReportPlague_UI extends javax.swing.JPanel {
         descripcao = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         tipoplaga = new javax.swing.JComboBox();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jButton2 = new javax.swing.JButton();
+        back_btn = new javax.swing.JToggleButton();
+        sendReport_btn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         titulo = new javax.swing.JTextField();
 
@@ -59,18 +59,18 @@ public class ReportPlague_UI extends javax.swing.JPanel {
 
         tipoplaga.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dragon amarillo", "Acaro blanco", "picudo de chile", "Minador de la hoja" }));
 
-        jToggleButton1.setText("Regresar");
-        jToggleButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jToggleButton1MouseClicked(evt);
+        back_btn.setText("Regresar");
+        back_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_btnActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("Enviar reporte");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+        sendReport_btn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        sendReport_btn.setText("Enviar reporte");
+        sendReport_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendReport_btnActionPerformed(evt);
             }
         });
 
@@ -85,13 +85,13 @@ public class ReportPlague_UI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jToggleButton1))
+                        .addComponent(back_btn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(389, 389, 389)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(381, 381, 381)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sendReport_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(265, 265, 265)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -113,7 +113,7 @@ public class ReportPlague_UI extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToggleButton1)
+                .addComponent(back_btn)
                 .addGap(3, 3, 3)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -127,40 +127,38 @@ public class ReportPlague_UI extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(jButton2)
+                .addComponent(sendReport_btn)
                 .addGap(57, 57, 57))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jToggleButton1MouseClicked
-        // TODO add your handling code here:
-        window.remove(reporte);        
-        window.add(entrar);
-        
-        window.repaint();
-        window.revalidate();
-        window.setVisible(true); 
-    }//GEN-LAST:event_jToggleButton1MouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
+    private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
         window.remove(reporte);        
         window.add(entrar);
         
         window.repaint();
         window.revalidate();
         window.setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_back_btnActionPerformed
+
+    private void sendReport_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendReport_btnActionPerformed
+        window.remove(reporte);        
+        window.add(entrar);
+        
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+    }//GEN-LAST:event_sendReport_btnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JToggleButton back_btn;
     public javax.swing.JTextArea descripcao;
-    public javax.swing.JButton jButton2;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JToggleButton jToggleButton1;
+    public javax.swing.JButton sendReport_btn;
     public javax.swing.JComboBox tipoplaga;
     public javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
