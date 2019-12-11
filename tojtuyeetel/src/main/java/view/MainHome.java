@@ -14,7 +14,6 @@ import javax.swing.DefaultListModel;
 import controller.MainHome_Controller;
 import exceptions.MyException;
 
-import static view.Sign_in.mprincipal;
 import static view.starter.entrar;
 import static view.starter.window;
 
@@ -31,6 +30,7 @@ public class MainHome extends javax.swing.JPanel {
     public static Sign_in presentacion;        
     public static AddCrop_UI agregar; 
     public static ReportPlague_UI reporte;
+    public static TrackCrops_UI track;
     public int count;
     
 
@@ -219,11 +219,11 @@ public class MainHome extends javax.swing.JPanel {
     }//GEN-LAST:event_addCrop_btnActionPerformed
 
     private void report_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_report_btnActionPerformed
-         goToReport();
+        goToReport();
     }//GEN-LAST:event_report_btnActionPerformed
 
     private void track_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_track_btnActionPerformed
-        // TODO add your handling code here:
+       showCropData();
     }//GEN-LAST:event_track_btnActionPerformed
 
     private void myCrops_listValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_myCrops_listValueChanged
@@ -294,6 +294,8 @@ public class MainHome extends javax.swing.JPanel {
         window.setVisible(true);
     }
     
+    
+    
     /**
      * Method to set a model to the crops names list
      */
@@ -306,8 +308,22 @@ public class MainHome extends javax.swing.JPanel {
             myCrops_list.setModel(listModel);
             
             for(int i=0; i<currentCrops.size(); i++){
-                listModel.addElement(currentCrops.values().toArray()[i]));
+                listModel.addElement(currentCrops.values().toArray()[i]);
             }
+        }
+        catch(MyException ex){
+            ex.showException(this);
+        }
+    }
+    
+    /**
+     * Method to show the crop information when track button is pressed
+     */
+    public void showCropData(){
+        TrackCrops_UI track = new TrackCrops_UI();
+        try{
+            HashMap<String,String> data = controller.getCropData(this.myCrops_list.getSelectedValue());
+            track.goToTrack(data);
         }
         catch(MyException ex){
             ex.showException(this);

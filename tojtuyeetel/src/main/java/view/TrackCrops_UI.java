@@ -5,7 +5,10 @@
  */
 package view;
 
+import java.util.HashMap;
+import static view.MainHome.reporte;
 import static view.Sign_in.mprincipal;
+import static view.starter.entrar;
 import static view.starter.window;
 
 /**
@@ -46,7 +49,7 @@ public class TrackCrops_UI extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1000, 626));
 
         fecha_siembra.setBackground(new java.awt.Color(255, 255, 255));
-        fecha_siembra.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        fecha_siembra.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         fecha_siembra.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fecha_siembra.setMaximumSize(new java.awt.Dimension(50, 17));
         fecha_siembra.setMinimumSize(new java.awt.Dimension(50, 17));
@@ -54,7 +57,7 @@ public class TrackCrops_UI extends javax.swing.JPanel {
         fecha_siembra.setPreferredSize(new java.awt.Dimension(50, 17));
 
         fecha_cosecha.setBackground(new java.awt.Color(255, 255, 255));
-        fecha_cosecha.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        fecha_cosecha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         fecha_cosecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fecha_cosecha.setOpaque(true);
 
@@ -153,13 +156,7 @@ public class TrackCrops_UI extends javax.swing.JPanel {
 
 
     private void B_regresar_mmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_regresar_mmenuActionPerformed
-        //removedores removedor = new removedores();
-        //removedor.remueve_panel_seguicosecha(this);
-        window.remove(this);
-        window.add(mprincipal);
-        window.repaint();
-        window.revalidate();
-        window.setVisible(true);
+        returnToHome();
     }//GEN-LAST:event_B_regresar_mmenuActionPerformed
 
     private void BcosecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcosecharActionPerformed
@@ -178,6 +175,42 @@ public class TrackCrops_UI extends javax.swing.JPanel {
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel nombre_cosecha;
     // End of variables declaration//GEN-END:variables
+
+
+    /**
+     * Method to change the actual window to the Home Window
+     */
+    public void returnToHome(){
+        window.remove(this);        
+        window.add(entrar);
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+    }
+    
+    /**
+     * Method to get in the tracking window with the crop information
+     * @param data
+     */
+    public void goToTrack(HashMap<String,String> data){
+        
+        this.setSize(1000, 626);
+        window.remove(entrar);
+        window.add(this);
+        window.repaint();
+        window.revalidate();
+        window.setVisible(true);
+        displayData(data);
+    }
+    
+    /**
+     * Method to show the crop info in the fields
+     * @param data
+     */
+    public void displayData(HashMap<String,String> data){
+        fecha_siembra.setText(data.get("seed_date"));
+        fecha_cosecha.setText(data.get("harvest_date"));
+    }
 }
 
 

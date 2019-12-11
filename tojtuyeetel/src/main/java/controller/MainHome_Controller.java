@@ -4,7 +4,6 @@ package controller;
 import exceptions.MyException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import model.CRUD.CropCRUD;
 import model.CRUD.UserCRUD;
 import model.schemas.Crop;
@@ -19,6 +18,7 @@ public class MainHome_Controller {
     
     CropCRUD cropModel = new CropCRUD();
     UserCRUD userModel = new UserCRUD();
+    
     
     /**
      * Method to return the names of the current crops
@@ -43,5 +43,28 @@ public class MainHome_Controller {
         }
         
         return cropNames;
+    }
+    
+    
+    /**
+     * Method to get the Crop object from de DB and place the date in a map
+     * @param name
+     * @return 
+     * @throws exceptions.MyException 
+     */
+    public HashMap<String,String> getCropData(String name) throws MyException{
+        HashMap<String,String> data = new HashMap<>();
+        Crop crop;
+        
+        try{
+            crop = cropModel.getCrop(name);
+            data.put("seed_date", crop.getSeed_date().toString());
+            data.put("harvest_date", crop.getHarvest_date().toString());
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+        return data;
     }
 }
