@@ -1,6 +1,7 @@
 
 package controller;
 
+import exceptions.MyException;
 import javax.swing.JOptionPane;
 import model.CRUD.ReportCRUD;
 import model.CRUD.UserCRUD;
@@ -16,8 +17,9 @@ public class ReportPlague_Controller {
     /**
      * Method to create a new plague report
      * @param view 
+     * @throws exceptions.MyException 
      */
-    public void report_crop(ReportPlague_UI view)
+    public void report_crop(ReportPlague_UI view) throws MyException
  {
   ReportCRUD crud = new ReportCRUD();
 
@@ -36,14 +38,20 @@ public class ReportPlague_Controller {
   //Enviar cosas al model si todo esta en orden
   if (campos == 1)
   {
-   UserCRUD crud2 = new UserCRUD();
-   Report reporte = new Report();
-   reporte.setUser(crud2.getUserByEmail("alextorre@correo.com"));
-   reporte.setTitle(view.titulo.getText());
-   reporte.setPlague(view.tipoplaga.getSelectedItem().toString());
-   reporte.setDescription(view.descripcao.getText());
+      try{
+          UserCRUD crud2 = new UserCRUD();
+            Report reporte = new Report();
+            reporte.setUser(crud2.getUserByEmail("alextorre@correo.com"));
+            reporte.setTitle(view.titulo.getText());
+            reporte.setPlague(view.tipoplaga.getSelectedItem().toString());
+            reporte.setDescription(view.descripcao.getText());
+
+            crud.createReport(reporte);
+      }
+      catch(Exception ex){
+          ex.printStackTrace();
+      }
    
-   crud.createReport(reporte);
   }
   else //EXCEPCIONES
   {

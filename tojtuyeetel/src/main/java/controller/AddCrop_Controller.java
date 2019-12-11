@@ -1,6 +1,7 @@
 package controller;
 
 //model
+import exceptions.MyException;
 import exceptions.MyPersistenceException;
 import model.CRUD.CropCRUD;
 import model.schemas.Crop;
@@ -21,8 +22,9 @@ public class AddCrop_Controller
     /**
      * Method to add/register a new crop
      * @param view 
+     * @throws exceptions.MyException 
      */
- public void add_crop(AddCrop_UI view)
+ public void add_crop(AddCrop_UI view) throws MyException
  {
   CropCRUD crud = new CropCRUD();
 
@@ -69,8 +71,8 @@ public class AddCrop_Controller
 
         crud.addCrop(seedy);
         
-      }catch(MyPersistenceException ex){
-          ex.showError(view);
+      }catch(Exception ex){ 
+          ex.printStackTrace();
       }
    
   }
