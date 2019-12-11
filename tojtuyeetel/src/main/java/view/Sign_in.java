@@ -5,7 +5,7 @@
  */
 package view;
 
-import static view.Main_menu.presentacion;
+import static view.MainHome.presentacion;
 import static view.starter.entrar;
 import static view.starter.window;
 
@@ -15,7 +15,7 @@ import static view.starter.window;
  */
 public class Sign_in extends javax.swing.JPanel {
 
-    public static Main_menu mprincipal;
+    public static MainHome mprincipal;
     public static Sign_up registro;
     /**
      * Creates new form Sign_in
@@ -178,7 +178,7 @@ public class Sign_in extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         //entrada al menu principal del usuario
-        mprincipal = new Main_menu();
+        mprincipal = new MainHome();
         
         mprincipal.setSize(1000,626);
         window.remove(presentacion);        

@@ -150,6 +150,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cosechar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BcosecharActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JProgressBar" name="barra_progreso">
     </Component>
@@ -166,7 +169,6 @@
         <Property name="text" type="java.lang.String" value="regresar"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="B_regresar_mmenuMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="B_regresar_mmenuActionPerformed"/>
       </Events>
     </Component>

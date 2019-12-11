@@ -16,18 +16,18 @@ import static view.starter.window;
  *
  * @author black
  */
-public class Main_menu extends javax.swing.JPanel {
+public class MainHome extends javax.swing.JPanel {
 
     /**
      * Creates new form registro_cultivo
      */
     
     public static Sign_in presentacion;        
-    public static agregar_cultivo agregar; 
-    public static report_plaga reporte;
+    public static AddCrop_UI agregar; 
+    public static ReportPlague_UI reporte;
     public int count;
     
-    public Main_menu() {
+    public MainHome() {
         initComponents();       
         
     }
@@ -46,9 +46,9 @@ public class Main_menu extends javax.swing.JPanel {
         table_news = new javax.swing.JTable();
         table_cultivo_scroll = new javax.swing.JScrollPane();
         table_cultivo = new javax.swing.JTable();
-        button_clo_ses = new javax.swing.JButton();
-        add_cultivo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        logout_btn = new javax.swing.JButton();
+        addCrop_btn = new javax.swing.JButton();
+        report_btn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setMaximumSize(new java.awt.Dimension(1000, 626));
@@ -107,34 +107,24 @@ public class Main_menu extends javax.swing.JPanel {
 
         Main_tabbed_panel.addTab("mis cultivos", table_cultivo_scroll);
 
-        button_clo_ses.setText("cerrar sesion");
-        button_clo_ses.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_clo_sesMouseClicked(evt);
-            }
-        });
-        button_clo_ses.addActionListener(new java.awt.event.ActionListener() {
+        logout_btn.setText("cerrar sesion");
+        logout_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_clo_sesActionPerformed(evt);
+                logout_btnActionPerformed(evt);
             }
         });
 
-        add_cultivo.setText("Agregar cultivo");
-        add_cultivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                add_cultivoMouseClicked(evt);
-            }
-        });
-        add_cultivo.addActionListener(new java.awt.event.ActionListener() {
+        addCrop_btn.setText("Agregar cultivo");
+        addCrop_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_cultivoActionPerformed(evt);
+                addCrop_btnActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Reportar plaga");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        report_btn.setText("Reportar plaga");
+        report_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                report_btnActionPerformed(evt);
             }
         });
 
@@ -146,11 +136,11 @@ public class Main_menu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(582, 582, 582)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(report_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(add_cultivo)
+                        .addComponent(addCrop_btn)
                         .addGap(47, 47, 47)
-                        .addComponent(button_clo_ses))
+                        .addComponent(logout_btn))
                     .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -158,9 +148,9 @@ public class Main_menu extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_clo_ses)
-                    .addComponent(add_cultivo)
-                    .addComponent(jButton1))
+                    .addComponent(logout_btn)
+                    .addComponent(addCrop_btn)
+                    .addComponent(report_btn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Main_tabbed_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -168,8 +158,35 @@ public class Main_menu extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void button_clo_sesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clo_sesMouseClicked
-        // TODO add your handling code here:    
+    private void logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_btnActionPerformed
+        returnToSignIn();         
+    }//GEN-LAST:event_logout_btnActionPerformed
+
+    private void addCrop_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCrop_btnActionPerformed
+        goToAddCrop();
+    }//GEN-LAST:event_addCrop_btnActionPerformed
+
+    private void report_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_report_btnActionPerformed
+         goToReport();
+    }//GEN-LAST:event_report_btnActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane Main_tabbed_panel;
+    private javax.swing.JButton addCrop_btn;
+    private javax.swing.JButton logout_btn;
+    private javax.swing.JPanel panel_mapa;
+    private javax.swing.JButton report_btn;
+    private javax.swing.JTable table_cultivo;
+    private javax.swing.JScrollPane table_cultivo_scroll;
+    private javax.swing.JTable table_news;
+    private javax.swing.JScrollPane table_news_scroll;
+    // End of variables declaration//GEN-END:variables
+
+
+    /**
+     * Method to return to the Sign In window
+     */
+    public void returnToSignIn(){
         presentacion = new Sign_in();
         presentacion.setSize(1000, 626);
         
@@ -181,20 +198,14 @@ public class Main_menu extends javax.swing.JPanel {
         window.repaint();
         window.revalidate();
         
-        window.setVisible(true);        
-    }//GEN-LAST:event_button_clo_sesMouseClicked
-
-    private void button_clo_sesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_clo_sesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button_clo_sesActionPerformed
-
-    private void add_cultivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_cultivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_cultivoActionPerformed
-
-    private void add_cultivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add_cultivoMouseClicked
-        // TODO add your handling code here:
-        agregar = new agregar_cultivo();
+        window.setVisible(true);
+    }
+    
+    /**
+     * Method to move to the Add Crop window
+     */
+    public void goToAddCrop(){
+        agregar = new AddCrop_UI();
 
         agregar.setSize(1000,626);
 
@@ -204,29 +215,19 @@ public class Main_menu extends javax.swing.JPanel {
         window.repaint();
         window.revalidate();
         window.setVisible(true);
-    }//GEN-LAST:event_add_cultivoMouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        reporte = new report_plaga();
+    }
+    
+    /**
+     * Method to go to the report window
+     */
+    public void goToReport(){
+        reporte = new ReportPlague_UI();
         
         reporte.setSize(1000, 626);
         window.remove(entrar);
         window.add(reporte);
         window.repaint();
         window.revalidate();
-        window.setVisible(true);      
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane Main_tabbed_panel;
-    private javax.swing.JButton add_cultivo;
-    private javax.swing.JButton button_clo_ses;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel panel_mapa;
-    private javax.swing.JTable table_cultivo;
-    private javax.swing.JScrollPane table_cultivo_scroll;
-    private javax.swing.JTable table_news;
-    private javax.swing.JScrollPane table_news_scroll;
-    // End of variables declaration//GEN-END:variables
+        window.setVisible(true);
+    }
 }
