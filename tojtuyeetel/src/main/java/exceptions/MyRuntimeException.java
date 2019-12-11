@@ -9,7 +9,7 @@ import javax.swing.JPanel;
  * PersistenceException child 
  * @author alext
  */
-public class MyPersistenceException extends RuntimeException{
+public class MyRuntimeException extends RuntimeException{
     
     /**
      * Method to show an error on the view

@@ -4,7 +4,7 @@ package controller;
 import exceptions.DateBeforeException;
 import exceptions.EmptyException;
 import exceptions.MyException;
-import exceptions.MyPersistenceException;
+import exceptions.MyRuntimeException;
 import exceptions.NameRegisteredException;
 import java.sql.Date;
 import java.util.HashMap;
@@ -78,7 +78,7 @@ import static view.starter.EMAIL;
                  
                  cropModel.addCrop(crop);
              }
-             catch(MyPersistenceException ex){
+             catch(MyRuntimeException ex){
                  ex.showException();
              }
              

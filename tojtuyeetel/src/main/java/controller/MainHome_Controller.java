@@ -2,7 +2,7 @@
 package controller;
 
 import exceptions.MyException;
-import exceptions.MyPersistenceException;
+import exceptions.MyRuntimeException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -70,7 +70,7 @@ public class MainHome_Controller {
             data.put("harvest_date", crop.getHarvest_date().toString());
             data.put("bar", String.valueOf(progressBar(crop)));
         }
-        catch(MyPersistenceException ex){
+        catch(MyRuntimeException ex){
             ex.showException();
         }
         
