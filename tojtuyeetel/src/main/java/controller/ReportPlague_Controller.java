@@ -51,8 +51,8 @@ public class ReportPlague_Controller {
 
             crud.createReport(reporte);
       }
-      catch(PersistenceException ex){
-          ex.printStackTrace();
+      catch(MyPersistenceException ex){
+          ex.showException();
       }
    
   }

@@ -70,8 +70,8 @@ public class MainHome_Controller {
             data.put("harvest_date", crop.getHarvest_date().toString());
             data.put("bar", String.valueOf(progressBar(crop)));
         }
-        catch(PersistenceException ex){
-            ex.printStackTrace();
+        catch(MyPersistenceException ex){
+            ex.showException();
         }
         
         return data;

@@ -78,8 +78,8 @@ import static view.starter.EMAIL;
                  
                  cropModel.addCrop(crop);
              }
-             catch(PersistenceException ex){
-                 ex.printStackTrace();
+             catch(MyPersistenceException ex){
+                 ex.showException();
              }
              
          }
