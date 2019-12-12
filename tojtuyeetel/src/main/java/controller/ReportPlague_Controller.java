@@ -52,9 +52,6 @@ public class ReportPlague_Controller {
             crud.createReport(reporte);
       }
       
-      catch(HibernateException ex){
-          view.showHibernateExceptions(ex);
-      }
       catch(PersistenceException ex){
           view.showPersistenceExceptions(ex);
        }

@@ -191,17 +191,6 @@ public class ReportPlague_UI extends javax.swing.JPanel {
         window.setVisible(true);
     }
     
-    /**
-     * Show in a JOptionPane the hibernate exceptions (incomplete)
-     * @param ex
-     */
-    public void showHibernateExceptions(HibernateException ex){
-        if(ex instanceof JDBCConnectionException){
-            JOptionPane.showMessageDialog(this, "Error de conexión" , "ERROR", JOptionPane.ERROR_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(this, "Error inesperado" , "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }
     
     /**
      * Show in a JOptionPane the persistence exceptions (incomplete)
@@ -210,8 +199,10 @@ public class ReportPlague_UI extends javax.swing.JPanel {
     public void showPersistenceExceptions(PersistenceException ex){
         if(ex instanceof NoResultException){
             JOptionPane.showMessageDialog(this, "Información no encontrada" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }else if (ex instanceof JDBCConnectionException){
+            JOptionPane.showMessageDialog(this, "Error de conexión" , "ERROR", JOptionPane.ERROR_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(this, "Error inesperado" , "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error" , "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

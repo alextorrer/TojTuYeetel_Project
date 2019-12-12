@@ -78,9 +78,6 @@ import static view.starter.EMAIL;
                  
                  cropModel.addCrop(crop);
              }
-             catch(HibernateException ex){
-                view.showHibernateExceptions(ex);
-            }
             catch(PersistenceException ex){
                 view.showPersistenceExceptions(ex);
              }

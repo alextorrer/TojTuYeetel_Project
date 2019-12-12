@@ -14,6 +14,7 @@ import javax.persistence.PersistenceException;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.JDBCException;
+import org.hibernate.exception.JDBCConnectionException;
 import static view.MainHome.agregar;
 import static view.starter.entrar;
 import static view.starter.window;
@@ -272,27 +273,16 @@ public class AddCrop_UI extends javax.swing.JPanel {
     }
     
     /**
-     * Show in a JOptionPane the hibernate exceptions (incomplete)
-     * @param ex
-     */
-    public void showHibernateExceptions(HibernateException ex){
-        if(ex instanceof JDBCException){
-            JOptionPane.showMessageDialog(this, "Error de conexión" , "ERROR", JOptionPane.ERROR_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(this, "Error inesperado" , "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-    /**
      * Show in a JOptionPane the persistence exceptions (incomplete)
      * @param ex
      */
     public void showPersistenceExceptions(PersistenceException ex){
         if(ex instanceof NoResultException){
             JOptionPane.showMessageDialog(this, "Información no encontrada" , "ERROR", JOptionPane.ERROR_MESSAGE);
+        }else if (ex instanceof JDBCConnectionException){
+            JOptionPane.showMessageDialog(this, "Error de conexión" , "ERROR", JOptionPane.ERROR_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(this, "Error inesperado" , "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error" , "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-    
-}
+    }
 }

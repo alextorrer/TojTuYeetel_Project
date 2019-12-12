@@ -47,7 +47,7 @@ public class MainHome_Controller {
             }
         }
         catch(PersistenceException ex){
-            
+            new MainHome().showPersistenceExceptions(ex);
         }
         
         return cropNames;
@@ -71,9 +71,6 @@ public class MainHome_Controller {
             data.put("bar", String.valueOf(progressBar(crop)));
             data.put("location",crop.getLocation());
         }
-        catch(HibernateException ex){
-                new MainHome().showHibernateExceptions(ex);
-            }
             catch(PersistenceException ex){
                 new MainHome().showPersistenceExceptions(ex);
              }
